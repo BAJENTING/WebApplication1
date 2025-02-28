@@ -1,0 +1,347 @@
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%; /* Ensure full width */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)50%), url(../images/background1.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: auto;
+    margin-left: 25%;
+}
+
+nav ul li {
+     position: relative;
+     padding: 10px 30px;
+
+}
+
+nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-family: "Sigmar", serif;
+      font-size: 15px;
+      letter-spacing: 1.2px;
+      transition: background-color 0.5s ease, padding 0.3s ease;
+}
+
+nav ul li a:hover {
+      opacity: 0.7;
+      padding: 5px;
+}
+
+nav ul li:hover .hover-container {
+      display: block; /* Show the hover-container when the li is hovered */
+}
+
+.hover-container {
+    position: absolute;
+    top: 100%; /* Position it directly below the list item */
+    left: auto;
+    background: linear-gradient(130deg, rgb(95, 125, 141), rgb(85, 85, 85));
+    color: black;
+    padding: 25px;
+    width: 220px;
+    text-align: center;
+    display: none; /* Initially hidden */
+    border-radius: 10px;
+    text-align: left;
+}
+
+    .hover-container p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        margin-top: 25px;
+    }
+
+.contact-info {
+    display: flex;
+}
+
+.contact-info img {
+    margin-top: 22px;
+    margin-right: 5px; /* Space between the icon and text */
+    margin-left: 8px; /* Ensure icons align to the left */
+}
+
+nav .logo {
+    font-family: "Pacifico", serif;
+    font-size: 20px;
+    display: flex;
+}
+
+nav .logo a {
+    text-decoration: none;
+    color: white;
+    box-shadow: inset 0 0 0 0 rgb(95, 125, 141);
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .6s ease-in-out, box-shadow .4s ease-in-out;
+}
+
+nav .logo a:hover {
+    box-shadow: inset 200px 0 0 0 white;
+    color: black;
+}
+
+.content {
+    margin-top: 14%;
+    margin-left: 5%;
+    color: #fff;
+    max-width: 620px;
+}
+
+.content h1 {
+    font-family: "Playfair Display SC", serif;
+    font-size: 70px;
+    font-weight: 500;
+    letter-spacing: 10px;
+    line-height: 80px;
+    margin-bottom: 25px;
+}
+
+.content p {
+    font-family: "Dancing Script", serif;
+    font-size: 20px;
+}
+
+
+
+/*   Login Form   */
+
+.form {
+    width: 100%;
+    max-width: 300px;
+    height: 392.5px;
+    background: linear-gradient(130deg, rgb(95, 125, 141), rgb(85, 85, 85));
+    box-shadow: 5px 5px 10px rgba(37, 37, 37, 0.5); /* Added blur and darker shadow */
+    position: relative;
+    top: -30%;
+    left: 75%;
+    border-radius: 25px;
+    padding: 25px;
+    box-sizing: border-box; /* Ensures padding doesn't add to the width/height */
+}
+
+.form h2 {
+    width: 200px;
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 20px;
+    padding: 8px;
+    color: #fff;
+    /*
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
+    color: transparent;
+    background-clip: text;
+    */
+}
+
+.form input {
+    width: 100%; /* Make input fields take full width */
+    max-width: 240px; /* Limiting max width */
+    height: 35px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 1px;
+    top: 50%;
+    margin-top: 25px;
+    margin-right: 5px;
+    padding-left: 10px;
+    font-family: "Poppins", serif;
+}
+
+.form input:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: #fff;
+    font-family: "Poppins", serif;
+}
+
+.btn {
+    width: 100%;
+    max-width: 240px; /* Limiting max width */
+    height: 40px;
+    background: white;
+    border: none;
+    margin: 30px 0;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.btn:hover {
+    opacity: 0.8;
+    color: black;
+}
+
+button {
+        color: #000;
+        font-weight: bold;
+    }
+
+.form .link {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.form .link a {
+    text-decoration: none;
+    color: rgb(0, 64, 99);
+}
+
+.form .link a:hover {
+     color: rgb(0, 0, 0);
+}
+
+
+/* Footer */
+
+footer {
+    background: linear-gradient(130deg, rgb(95, 125, 141), rgb(85, 85, 85));
+    font-family: "Poppins", serif;
+    margin-top: auto;
+}
+
+.footerContainer {
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+
+.footerIcons {
+    display: flex;
+    justify-content: center;
+}
+
+.footerIcons a {
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 30%;
+}
+
+.footerIcons a i {
+    font-size: 1.5em;
+    color: black;
+    opacity: 0.9;
+        }
+
+.footerIcons a:hover {
+    background-color: #111;
+    transition: 0.5s;
+}
+
+.footerIcons a:hover i {
+    color: white;
+    transition: 0.5s ease-in-out;
+}
+
+.footerNav {
+    margin: 20px 0;
+}
+
+    .footerNav ul {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+    }
+
+        .footerNav ul li a {
+            color: white;
+            margin: 20px;
+            text-decoration: none;
+            font-size: 1em;
+            opacity: 0.7;
+            transition: 0.5s ease-in-out;
+        }
+
+            .footerNav ul li a:hover {
+                opacity: 0.8;
+                color: black;
+            }
+
+.footerLetter {
+    background-color: #000;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+    .footerLetter p {
+        color: white;
+        font-size: 1em;
+    }
+
+.team {
+    font-family: "Playfair Display SC", serif;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
+
+@media (max-width: 700px) {
+.footerNav ul {
+    flex-direction: column;
+}
+
+.footerNav ul li {
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+}
+
+.divider {
+    display: none; /* Disable divider on small screens */
+}
+
+}

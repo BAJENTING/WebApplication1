@@ -1,0 +1,182 @@
+/* nav styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%; /* Ensure full width */
+}
+
+nav {
+    background-color: deepskyblue;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        margin: auto;
+        margin-left: 25%;
+    }
+
+        nav ul li {
+            position: relative;
+            padding: 10px 30px;
+        }
+
+            nav ul li a {
+                color: #fff;
+                text-decoration: none;
+                font-family: "Sigmar", serif;
+                font-size: 15px;
+                letter-spacing: 1.2px;
+                transition: background-color 0.5s ease, padding 0.3s ease;
+            }
+
+                nav ul li a:hover {
+                    opacity: 0.7;
+                    padding: 5px;
+                }
+
+            nav ul li:hover .hover-container {
+                display: block; /* Show the hover-container when the li is hovered */
+            }
+
+.hover-container {
+
+    position: absolute;
+    top: 100%; /* Position it directly below the list item */
+    left: auto;
+    background: linear-gradient(130deg, rgb(95, 125, 141), rgb(85, 85, 85));
+    color: black;
+    padding: 25px;
+    width: 220px;
+    text-align: center;
+    display: none; /* Initially hidden */
+    border-radius: 10px;
+    text-align: left;
+}
+
+    .hover-container p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        margin-top: 25px;
+    }
+
+.contact-info {
+    display: flex;
+}
+
+    .contact-info img {
+        margin-top: 22px;
+        margin-right: 5px; /* Space between the icon and text */
+        margin-left: 8px; /* Ensure icons align to the left */
+    }
+
+nav .logo {
+    font-family: "Pacifico", serif;
+    font-size: 20px;
+    display: flex;
+}
+
+    nav .logo a {
+        text-decoration: none;
+        color: white;
+        box-shadow: inset 0 0 0 0 rgb(95, 125, 141);
+        margin: 0 -.25rem;
+        padding: 0 .25rem;
+        transition: color .6s ease-in-out, box-shadow .4s ease-in-out;
+    }
+
+/* Slideshow Container */
+.slideshow-container {
+    position: relative;
+    max-width: 80%;
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+.slide-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+/* Slide Style */
+.slide {
+    flex: 0 0 auto;
+    width: 300px;
+    margin: 0 10px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s;
+    margin: 15px; 
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: block;
+    padding: 0px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Arrow Styles */
+.arrow {
+    cursor: pointer;
+    font-size: 40px;
+    user-select: none;
+    transition: transform 0.5s ease;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 50%;
+    
+    
+}
+
+.left-arrow {
+    left: 0;
+    margin-right: 0px;
+    
+}
+
+.right-arrow {
+    right: 0;
+}
+
+.arrow:hover {
+    transform: scale(1.1) translateY(-50%);
+}
+
+/* Footer Style */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #d1bfbf;
+    text-align: center;
+    padding: 10px 0;
+}

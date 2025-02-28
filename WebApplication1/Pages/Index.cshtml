@@ -1,0 +1,111 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sigmar&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo"><a href="/">Balay na Homes</a></div>
+            <!-- Top Navigation Items -->
+            <ul>
+                <li>
+                    <a href="#">About Us</a>
+                    <div class="hover-container">
+                        <h3>What are we?</h3>
+                        <p>We are Balay na Homes!<br>We strive to provide a harmonious environment for everyone to enjoy. <br>Our commitment is to create a space where comfort, peace, and community come together.</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                    <div class="hover-container">
+                        <h3>Want to get in touch with us?</h3>
+                        <div class="contact-info">
+                            <img src="~/images/vecteezy_phone-icon.png" style="width: 24px;" height="24px">
+                            <p>(555) 123-4567</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Privacy Policy</a>
+                    <div class="hover-container">
+                        <h3>Privacy Policy</h3>
+                        <p>At Balay na Homes, we collect personal information to improve our services and provide support. We implement security measures to protect your data, and we do not sell or rent your information to third parties. You have the right to access, update, or delete your data, and can opt out of promotional communications at any time.</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Our Team</a>
+                    <div class="hover-container">
+                        <h3>Meet the Team!</h3>
+                        <p>Jingle Otome Decierdo</p>
+                        <p>Carla Hacuman</p>
+                        <p>John 1</p>
+                        <p>John 2</p>
+                        <p>John 3</p>
+                    </div>
+                </li>
+            </ul>
+            <!-- End of Top Navigation Items -->
+        </nav>
+
+        <!-- Content -->
+        <div class="content">
+            <h1>BALAY NA<br>HOMES</h1>
+            <p>Where Community Meets Comfort and Dreams</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Login/Signup Form -->
+        <div class="form">
+            <form method="post" asp-page-handler="Login">
+                <h2>Login Here</h2>
+                <input type="email" name="Email" placeholder="Enter Email Here" required>
+                <input type="password" name="Password" placeholder="Enter Password Here" required>
+                <button type="submit" class="btn">Login</button>
+
+                <p class="link">
+                    Don't have an account?<br>
+                    <a href="#">Sign up </a> here!
+                </p>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footerContainer">
+                <div class="footerIcons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-google-plus"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <div class="footerNav">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Our Team</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footerLetter">
+                <p>Copyright &copy;2025; <span class="team">Balay na Homes.</span></p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

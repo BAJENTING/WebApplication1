@@ -1,0 +1,195 @@
+﻿@page
+@model WebApplication1.Pages.HomeModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title> <!-- Using Razor to dynamically set title -->
+    <link rel="stylesheet" href="~/css/homes.css"> <!-- Your existing styles -->
+    <link rel="stylesheet" href="slideshow.css"> <!-- Slideshow styles -->
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="/">Balay na Homes</a></div>
+        <!-- Top Navigation Items -->
+        <ul>
+            <li>
+                <a href="#">About Us</a>
+                <div class="hover-container">
+                    <h3>What are we?</h3>
+                    <p>We are Balay na Homes!<br>We strive to provide a harmonious environment for everyone to enjoy. <br>Our commitment is to create a space where comfort, peace, and community come together.</p>
+                </div>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+                <div class="hover-container">
+                    <h3>Want to get in touch with us?</h3>
+                    <div class="contact-info">
+                        <img src="~/images/vecteezy_phone-icon.png" style="width: 24px;" height="24px">
+                        <p>(555) 123-4567</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#">Privacy Policy</a>
+                <div class="hover-container">
+                    <h3>Privacy Policy</h3>
+                    <p>At Balay na Homes, we collect personal information to improve our services and provide support. We implement security measures to protect your data, and we do not sell or rent your information to third parties. You have the right to access, update, or delete your data, and can opt out of promotional communications at any time.</p>
+                </div>
+            </li>
+            <li>
+                <a href="#">Our Team</a>
+                <div class="hover-container">
+                    <h3>Meet the Team!</h3>
+                    <p>Jingle Otome Decierdo</p>
+                    <p>Carla Hacuman</p>
+                    <p>John 1</p>
+                    <p>John 2</p>
+                    <p>John 3</p>
+                </div>
+            </li>
+        </ul>
+        <!-- End of Top Navigation Items -->
+    </nav>
+
+    <div class="slideshow-container">
+        <span class="arrow left-arrow" onclick="changeSlide(-1)">&#8592;</span> <!-- Left Arrow -->
+
+        <div class="slide-track">
+            <div class="slide">
+                <div class="card">
+                    <img src="~/images/Usermanangement.png" alt="User Manangement">
+                    <h3>User Mangement</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card">
+                    <img src="~/images/Announcements and Notifications.jpg" alt="Announcements and Notifications">
+                    <h3>Anouncement and Notifacation</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card">
+                    <img src="~/images/Billing&Payment.jpg" alt="Billing & Payment">
+                    <h3>Billing & Payment</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card">
+                    <img src="~/images/Facility-Reservation.jpg" alt="Facility Reservation">
+                    <h3>Facility Reservation</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card">
+                    <img src="~/images/Service Request Management.jpg" alt="Service Request Mangement">
+                    <h3>Service Request Mangement</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card">
+                    <img src="~/images/Document Management.jpg" alt="Document Mangement">
+                    <h3>Document Mangement</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card">
+                    <img src="~/images/Community Forum.jpg" alt="Community Forum">
+                <h3>Community Forum</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card">
+                    <img src="~/images/Security Features.jpg" alt="Security Features">
+                    <h3>Security Features</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card">
+                    <img src="~/images/Event Calendar.jpg" alt="Event Calendar">
+                    <h3>Event Calendar</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card">
+                    <img src="~/images/Feedback & Complaints System.jpg" alt="Feedback & Complaints Sytem">
+                    <h3>Feedback & Complaints System</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card">
+                    <img src="~/images/Contact Directory.jpg" alt="Contact Directory">
+                    <h3>Contact Directory</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card">
+                    <img src="~/images/Mobile-Friendly.jpg" alt="Mobile Friendly">
+                    <h3>Moblie Friendly</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card">
+                    <img src="~/images/Reports & Analytics.jpg" alt="Reports & Analytics">
+                    <h3>Reports & Analytics</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card">
+                    <img src="~/images/Polls & Survey.jpg" alt="Polls & Survey">
+                    <h3>Polls & Survey</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="card">
+                    <img src="~/images/Security & Privacy.jpg" alt="Sectrity & Privacy">
+                    <h3>Security & Privacy</h3>
+                </div>
+            </div>
+        </div>
+
+        <span class="arrow right-arrow" onclick="changeSlide(1)">&#8594;</span> <!-- Right Arrow -->
+    </div>
+
+    <footer><h2>BALAY NA HOMES</h2></footer>
+
+    <script>
+        let currentIndex = 0;
+        const slidesToShow = 3;
+        const slideWidth = 300; // Width of each card
+        const slideTrack = document.querySelector('.slide-track');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function changeSlide(direction) {
+            currentIndex += direction;
+
+            // Loop back to the start or end
+            if (currentIndex < 0) {
+                currentIndex = totalSlides - slidesToShow;
+            } else if (currentIndex > totalSlides - slidesToShow) {
+                currentIndex = 0;
+            }
+
+            slideTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+    </script>
+</body>
+</html>
