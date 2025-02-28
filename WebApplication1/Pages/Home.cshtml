@@ -56,14 +56,14 @@
         <!-- End of Top Navigation Items -->
     </nav>
 
-    <div class="slideshow-container">
-        <span class="arrow left-arrow" onclick="changeSlide(-1)">&#8592;</span> <!-- Left Arrow -->
+    <span class="arrow left-arrow" onclick="changeSlide(-1)">&#8592;</span> <!-- Left Arrow -->
 
+    <div class="slideshow-container">
         <div class="slide-track">
             <div class="slide">
                 <div class="card">
                     <img src="~/images/Usermanangement.png" alt="User Manangement">
-                    <h3>User Mangement</h3>
+                    <h3>User Management</h3>
                 </div>
             </div>
 
@@ -76,7 +76,9 @@
 
             <div class="slide">
                 <div class="card">
-                    <img src="~/images/Billing&Payment.jpg" alt="Billing & Payment">
+                    <a href="BillPay">
+                        <img src="~/images/Billing&Payment.jpg" alt="Billing & Payment">
+                    </a>
                     <h3>Billing & Payment</h3>
                 </div>
             </div>
@@ -104,7 +106,9 @@
 
             <div class="slide">
                 <div class="card">
+                    <a href="FAQ">
                     <img src="~/images/Community Forum.jpg" alt="Community Forum">
+                    </a>
                 <h3>Community Forum</h3>
                 </div>
             </div>
@@ -152,9 +156,9 @@
             </div>
 
             <div class="slide">
-                <div class="card">
+                <div class="card">+
                     <img src="~/images/Polls & Survey.jpg" alt="Polls & Survey">
-                    <h3>Polls & Survey</h3>
+                    <h3>Polls & Survey</h>
                 </div>
             </div>
 
@@ -165,11 +169,34 @@
                 </div>
             </div>
         </div>
-
-        <span class="arrow right-arrow" onclick="changeSlide(1)">&#8594;</span> <!-- Right Arrow -->
     </div>
 
-    <footer><h2>BALAY NA HOMES</h2></footer>
+    <span class="arrow right-arrow" onclick="changeSlide(1)">&#8594;</span> <!-- Right Arrow -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footerContainer">
+            <div class="footerIcons">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-google-plus"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="footerNav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Our Team</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footerLetter">
+            <p>Copyright &copy;2025; <span class="team">Balay na Homes.</span></p>
+        </div>
+    </footer>
 
     <script>
         let currentIndex = 0;

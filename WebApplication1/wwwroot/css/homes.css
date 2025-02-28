@@ -1,5 +1,3 @@
-/* nav styles */
-
 * {
     margin: 0;
     padding: 0;
@@ -7,9 +5,11 @@
 }
 
 html, body {
-    height: 100%;
-    width: 100%; /* Ensure full width */
+    width: 100%;
+    height: 100vh;
 }
+
+/* nav styles */
 
 nav {
     background-color: deepskyblue;
@@ -51,7 +51,6 @@ nav {
             }
 
 .hover-container {
-
     position: absolute;
     top: 100%; /* Position it directly below the list item */
     left: auto;
@@ -96,8 +95,10 @@ nav .logo {
         transition: color .6s ease-in-out, box-shadow .4s ease-in-out;
     }
 
+
 /* Slideshow Container */
 .slideshow-container {
+    top: 20%;
     position: relative;
     max-width: 80%;
     margin: 50px auto;
@@ -123,12 +124,13 @@ nav .logo {
     text-align: center;
     padding: 10px;
     transition: transform 0.3s;
-    margin: 15px; 
+    margin: 20px; 
+    height: 300px;
+    width: 250px;
 }
 
 .card img {
     max-width: 100%;
-    border-radius: 10px;
     margin: 0 auto;
     display: block;
     padding: 0px;
@@ -149,34 +151,122 @@ nav .logo {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
+    background: none;
+    color: black;
     border-radius: 50%;
-    
-    
+
 }
 
 .left-arrow {
     left: 0;
-    margin-right: 0px;
+    margin-left: 50px;
     
 }
 
 .right-arrow {
     right: 0;
+    margin-right: 50px;
 }
 
 .arrow:hover {
     transform: scale(1.1) translateY(-50%);
 }
 
-/* Footer Style */
+/* Footer */
+
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #d1bfbf;
-    text-align: center;
-    padding: 10px 0;
+    background: linear-gradient(130deg, rgb(95, 125, 141), rgb(85, 85, 85));
+    font-family: "Poppins", serif;
+    margin-top: 25%;
 }
+
+.footerContainer {
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+
+.footerIcons {
+    display: flex;
+    justify-content: center;
+}
+
+    .footerIcons a {
+        text-decoration: none;
+        font-size: 16px;
+        padding: 10px;
+        background-color: white;
+        margin: 10px;
+        border-radius: 30%;
+    }
+
+        .footerIcons a i {
+            font-size: 1.5em;
+            color: black;
+            opacity: 0.9;
+        }
+
+        .footerIcons a:hover {
+            background-color: #111;
+            transition: 0.5s;
+        }
+
+            .footerIcons a:hover i {
+                color: white;
+                transition: 0.5s ease-in-out;
+            }
+
+.footerNav {
+    margin: 20px 0;
+}
+
+    .footerNav ul {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+    }
+
+        .footerNav ul li a {
+            color: white;
+            margin: 20px;
+            text-decoration: none;
+            font-size: 1em;
+            opacity: 0.7;
+            transition: 0.5s ease-in-out;
+        }
+
+            .footerNav ul li a:hover {
+                opacity: 0.8;
+                color: black;
+            }
+
+.footerLetter {
+    background-color: #000;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+    .footerLetter p {
+        color: white;
+        font-size: 1em;
+    }
+
+.team {
+    font-family: "Playfair Display SC", serif;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
+
+@media (max-width: 700px) {
+    .footerNav ul {
+        flex-direction: column;
+    }
+
+        .footerNav ul li {
+            width: 100%;
+            text-align: center;
+            margin: 10px;
+        }

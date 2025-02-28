@@ -1,0 +1,84 @@
+﻿@page
+@model WebApplication1.Pages.FAQModel
+@{
+    ViewData["Title"] = "Frequently Asked Questions page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balay ni Mayang</title>
+    <link rel="stylesheet" href="~/css/faq.css">
+    <script src="~/js/faq.js"></script>
+</head>
+<body style="margin: auto;">
+    <header style="background-color: #c4B2B0; padding: 10px; margin-left: 0px; position: relative;">
+        <div class="navbar-icon" onclick="openNav()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <img src="images/Homepage.png" height="50px" width="90px" style="margin-left: 50px;">
+    </header>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <h2 style="margin-left: 1.5em;">MENU</h2>
+        <hr>
+        <a href="reservation.html">Facility Reservation</a>
+        <a href="faq.html">Questions & Concerns</a>
+        <a href="bill.html">Billing & Payment</a>
+    </div>
+
+    <div class="head">
+        <h1>BALAY NI MAYANG</h1>
+        <h2>OPEN FORUM FOR YOUR IDEAS</h2>
+        <hr>
+    </div>
+
+    <section class="faq">
+        <h2 onclick="toggleSection('faqContent')">Frequently Asked Questions</h2>
+        <div id="faqContent" class="content hidden">
+            <p>Share feedback/Complaints/Ideas</p>
+            <p>These are the most common questions we get from our homeowners. You can find and read the answers for your questions, but you can also use the forum page to post questions you have in mind but are not here.</p>
+
+            <h3>Frequently Asked Questions</h3>
+            <p>These are the most commonly asked questions about Balay na Homes.</p>
+
+            <ul>
+                <li>What are the rules and regulations for the community?</li>
+                <li>How do I report maintenance issues? ✓</li>
+                <li>How can I get involved in the HOA or community events? ✓</li>
+                <li>Who do I contact in case of an emergency? ✓</li>
+                <li>How do I access amenities like the pool, gym, or clubhouse? ✓</li>
+                <li>What happens if I violate a community rule? ✓</li>
+                <li>How does billing work? ✓</li>
+            </ul>
+
+            <button>Load More</button>
+        </div>
+    </section>
+
+    <section class="feedback">
+        <h2 onclick="toggleSection('feedbackContent')">Share feedback/Complaints/Ideas</h2>
+        <div id="feedbackContent" class="content hidden">
+            <p>This page is dedicated for everyone to freely create, share, and collaborate ideas with fellow homeowners. And you can also post feedback and complaints you want the management to hear and respond.</p>
+
+            <h3>Mind to share?</h3>
+            <ul>
+                <li>Pathway in Gate 4 needs reconstruction</li>
+                <li>We need more security guard to room around every night!</li>
+                <li>Fees for facilities are getting higher</li>
+                <li>I think our community needs a leader</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <h2>BALAY NA HOMES</h2>
+    </footer>
+
+    <script src="faq.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿@page
+@model WebApplication1.Pages.BillPayModel
+@{
+    ViewData["Title"] = "Bill & Payment page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing and Payment Page</title>
+    <link rel="stylesheet" href="~/css/billpay.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Billing and Payment Portal</h2>
+            <ul>
+                <li>Swimming Pool</li>
+                <li>Gym</li>
+                <li>Ball Room</li>
+                <li>Clubhouse</li>
+                <li>Basketball Court</li>
+                <li>Tennis Court</li>
+                <li>Multi-purpose Hall</li>
+                <li>Function Room</li>
+                <li>Badminton Court</li>
+                <li>Pet Park</li>
+                <li>Playground</li>
+                <li>Lounge Areas</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h2>Billing Details</h2>
+            <div class="billing-card">
+                <p><strong>Carla N. Hacuman</strong></p>
+                <p>House #: LL123</p>
+                <p>January 2025 Fees</p>
+                <ul>
+                    <li>Association Dues/Fees - <span class="paid">Paid</span></li>
+                    <li>Garbage Collection Fee - <span class="paid">Paid</span></li>
+                    <li>Sewerage/Drainage Fee - <span class="paid">Paid</span></li>
+                    <li>Security Services Fee - <span class="paid">Paid</span></li>
+                    <li>Road and Infrastructure Maintenance Fee - <span class="unpaid">Unpaid</span></li>
+                </ul>
+                <p><strong>Additional Fees:</strong></p>
+                <ul>
+                    <li>Pet Park Rent - <span class="unpaid">Unpaid</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

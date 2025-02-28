@@ -23,7 +23,7 @@ namespace WebApplication1.Pages
             {
                 // Perform login logic (this is just an example)
                 // You would typically check the credentials here and redirect to a different page
-                if (Email == "as@userexample.com" && Password == "password123")
+                if (Email == "as@userexample.com" && Password == "123")
                 {
                     // Redirect to Home page after successful login
                     return RedirectToPage("/Home");
