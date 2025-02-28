@@ -12,6 +12,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -76,7 +77,7 @@ nav ul li:hover .hover-container {
     position: absolute;
     top: 100%; /* Position it directly below the list item */
     left: auto;
-    background: linear-gradient(130deg, rgb(95, 125, 141), rgb(85, 85, 85));
+    background: linear-gradient(130deg, rgb(193,219,155), rgb(85, 85, 85));
     color: black;
     padding: 25px;
     width: 220px;
@@ -86,17 +87,31 @@ nav ul li:hover .hover-container {
     text-align: left;
 }
 
-    .hover-container p {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 15px;
-        margin-top: 25px;
-    }
+.hover-container h3 {
+    text-align: center;
+}
+
+.hover-container p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-top: 25px;
+}
 
 .contact-info {
     display: flex;
 }
 
 .contact-info img {
+    margin-top: 22px;
+    margin-right: 5px; /* Space between the icon and text */
+    margin-left: 8px; /* Ensure icons align to the left */
+}
+
+.us {
+    display: flex;
+}
+
+.us img {
     margin-top: 22px;
     margin-right: 5px; /* Space between the icon and text */
     margin-left: 8px; /* Ensure icons align to the left */
@@ -111,10 +126,10 @@ nav .logo {
 nav .logo a {
     text-decoration: none;
     color: white;
-    box-shadow: inset 0 0 0 0 rgb(95, 125, 141);
+    box-shadow: inset 0 0 0 0 rgb(193,219,155);
     margin: 0 -.25rem;
     padding: 0 .25rem;
-    transition: color .6s ease-in-out, box-shadow .4s ease-in-out;
+    transition: color .6s ease-in-out, box-shadow .3s ease-in-out;
 }
 
 nav .logo a:hover {
@@ -131,9 +146,9 @@ nav .logo a:hover {
 
 .content h1 {
     font-family: "Playfair Display SC", serif;
-    font-size: 70px;
+    font-size: 90px;
     font-weight: 500;
-    letter-spacing: 10px;
+    letter-spacing: 15px;
     line-height: 80px;
     margin-bottom: 25px;
 }
@@ -141,6 +156,7 @@ nav .logo a:hover {
 .content p {
     font-family: "Dancing Script", serif;
     font-size: 20px;
+
 }
 
 
@@ -151,7 +167,7 @@ nav .logo a:hover {
     width: 100%;
     max-width: 300px;
     height: 392.5px;
-    background: linear-gradient(130deg, rgb(95, 125, 141), rgb(85, 85, 85));
+    background: linear-gradient(130deg, rgb(193,219,155), rgb(85, 85, 85));
     box-shadow: 5px 5px 10px rgba(37, 37, 37, 0.5); /* Added blur and darker shadow */
     position: relative;
     top: -30%;
@@ -196,6 +212,20 @@ nav .logo a:hover {
     outline: none;
 }
 
+/* Remove the background color when the field is autofilled */
+
+.form input::-webkit-input-placeholder {
+    color: #fff; /* Change placeholder text color */
+    font-family: "Poppins", serif; /* Change placeholder text font */
+    font-size: 12px; /* Adjust font size of the placeholder */
+}
+
+.form input:focus:-webkit-autofill {
+    background-color: transparent !important; /* Make sure autofill is transparent */
+    box-shadow: 0 0 0 30px transparent inset !important; /* Remove shadow */
+}
+
+
 ::placeholder {
     color: #fff;
     font-family: "Poppins", serif;
@@ -211,7 +241,7 @@ nav .logo a:hover {
     font-size: 18px;
     border-radius: 8px;
     cursor: pointer;
-    color: #fff;
+    color: black;
 }
 
 .btn:hover {
@@ -220,8 +250,8 @@ nav .logo a:hover {
 }
 
 button {
-        color: #000;
-        font-weight: bold;
+    color: #000;
+    font-weight: bold;
     }
 
 .form .link {
@@ -233,7 +263,7 @@ button {
 
 .form .link a {
     text-decoration: none;
-    color: rgb(0, 64, 99);
+    color: rgb(6, 83, 45);
 }
 
 .form .link a:hover {
@@ -244,17 +274,18 @@ button {
 /* Footer */
 
 footer {
-    background: linear-gradient(130deg, rgb(95, 125, 141), rgb(85, 85, 85));
+    background: linear-gradient(130deg, rgb(193,219,155), rgb(85, 85, 85));
     font-family: "Poppins", serif;
     margin-top: auto;
 }
 
 .footerContainer {
     width: 100%;
-    padding: 70px 30px 20px;
+    padding: 25px 20px 20px;
 }
 
 .footerIcons {
+    padding: 20px 20px;
     display: flex;
     justify-content: center;
 }
@@ -265,14 +296,15 @@ footer {
     padding: 10px;
     background-color: white;
     margin: 10px;
-    border-radius: 30%;
+    border-radius: 50%;
 }
 
 .footerIcons a i {
     font-size: 1.5em;
     color: black;
     opacity: 0.9;
-        }
+    padding: 3px;
+}
 
 .footerIcons a:hover {
     background-color: #111;
@@ -288,37 +320,37 @@ footer {
     margin: 20px 0;
 }
 
-    .footerNav ul {
-        display: flex;
-        justify-content: center;
-        list-style-type: none;
-    }
+.footerNav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
 
-        .footerNav ul li a {
-            color: white;
-            margin: 20px;
-            text-decoration: none;
-            font-size: 1em;
-            opacity: 0.7;
-            transition: 0.5s ease-in-out;
-        }
+.footerNav ul li a {
+    color: white;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1em;
+    opacity: 0.7;
+    transition: 0.5s ease-in-out;
+}
 
-            .footerNav ul li a:hover {
-                opacity: 0.8;
-                color: black;
-            }
+.footerNav ul li a:hover {
+    opacity: 0.8;
+    color: black;
+}
 
 .footerLetter {
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     padding: 20px;
     text-align: center;
 }
 
-    .footerLetter p {
-        color: white;
-        font-size: 1em;
-    }
+.footerLetter p {
+    color: white;
+    font-size: 1em;
+}
 
 .team {
     font-family: "Playfair Display SC", serif;
@@ -338,10 +370,4 @@ footer {
     width: 100%;
     text-align: center;
     margin: 10px;
-}
-
-.divider {
-    display: none; /* Disable divider on small screens */
-}
-
 }

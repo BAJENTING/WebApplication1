@@ -5,14 +5,13 @@
 }
 
 html, body {
-    width: 100%;
-    height: 100vh;
+    height: 100%;
+    width: 100%; /* Ensure full width */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* nav styles */
-
 nav {
-    background-color: deepskyblue;
+    background: linear-gradient(130deg, rgb(193,219,155), rgb(85, 85, 85));
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -20,41 +19,42 @@ nav {
     box-sizing: border-box;
 }
 
-    nav ul {
-        list-style: none;
-        display: flex;
-        margin: auto;
-        margin-left: 25%;
-    }
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: auto;
+    margin-left: 25%;
+}
 
-        nav ul li {
-            position: relative;
-            padding: 10px 30px;
-        }
+nav ul li {
+     position: relative;
+     padding: 10px 30px;
 
-            nav ul li a {
-                color: #fff;
-                text-decoration: none;
-                font-family: "Sigmar", serif;
-                font-size: 15px;
-                letter-spacing: 1.2px;
-                transition: background-color 0.5s ease, padding 0.3s ease;
-            }
+}
 
-                nav ul li a:hover {
-                    opacity: 0.7;
-                    padding: 5px;
-                }
+nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-family: "Sigmar", serif;
+      font-size: 15px;
+      letter-spacing: 1.2px;
+      transition: background-color 0.5s ease, padding 0.3s ease;
+}
 
-            nav ul li:hover .hover-container {
-                display: block; /* Show the hover-container when the li is hovered */
-            }
+nav ul li a:hover {
+      opacity: 0.7;
+      padding: 5px;
+}
+
+nav ul li:hover .hover-container {
+      display: block; /* Show the hover-container when the li is hovered */
+}
 
 .hover-container {
     position: absolute;
     top: 100%; /* Position it directly below the list item */
     left: auto;
-    background: linear-gradient(130deg, rgb(95, 125, 141), rgb(85, 85, 85));
+    background: linear-gradient(130deg, rgb(193,219,155), rgb(85, 85, 85));
     color: black;
     padding: 25px;
     width: 220px;
@@ -64,21 +64,35 @@ nav {
     text-align: left;
 }
 
-    .hover-container p {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 15px;
-        margin-top: 25px;
-    }
+.hover-container h3 {
+    text-align: center;
+}
+
+.hover-container p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-top: 25px;
+}
 
 .contact-info {
     display: flex;
 }
 
-    .contact-info img {
-        margin-top: 22px;
-        margin-right: 5px; /* Space between the icon and text */
-        margin-left: 8px; /* Ensure icons align to the left */
-    }
+.contact-info img {
+    margin-top: 22px;
+    margin-right: 5px; /* Space between the icon and text */
+    margin-left: 8px; /* Ensure icons align to the left */
+}
+
+.us {
+    display: flex;
+}
+
+.us img {
+    margin-top: 22px;
+    margin-right: 5px; /* Space between the icon and text */
+    margin-left: 8px; /* Ensure icons align to the left */
+}
 
 nav .logo {
     font-family: "Pacifico", serif;
@@ -86,14 +100,42 @@ nav .logo {
     display: flex;
 }
 
-    nav .logo a {
-        text-decoration: none;
-        color: white;
-        box-shadow: inset 0 0 0 0 rgb(95, 125, 141);
-        margin: 0 -.25rem;
-        padding: 0 .25rem;
-        transition: color .6s ease-in-out, box-shadow .4s ease-in-out;
-    }
+nav .logo a {
+    text-decoration: none;
+    color: white;
+    box-shadow: inset 0 0 0 0 rgb(193,219,155);
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .6s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+nav .logo a:hover {
+    box-shadow: inset 200px 0 0 0 white;
+    color: black;
+}
+
+.content {
+    margin-top: 14%;
+    margin-left: 5%;
+    color: #fff;
+    max-width: 620px;
+}
+
+.content h1 {
+    font-family: "Playfair Display SC", serif;
+    font-size: 90px;
+    font-weight: 500;
+    letter-spacing: 15px;
+    line-height: 80px;
+    margin-bottom: 25px;
+}
+
+.content p {
+    font-family: "Dancing Script", serif;
+    font-size: 20px;
+
+}
+
 
 
 /* Slideshow Container */
@@ -115,6 +157,15 @@ nav .logo {
     flex: 0 0 auto;
     width: 300px;
     margin: 0 10px;
+}
+
+.slide img {
+    height: 150px;
+    width: 200px;
+}
+
+.slide h3 {
+    margin-top: 50px;
 }
 
 .card {
@@ -147,25 +198,32 @@ nav .logo {
     user-select: none;
     transition: transform 0.5s ease;
     padding: 10px;
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
     background: none;
     color: black;
     border-radius: 50%;
+}
 
+.arrow.rotate {
+    transform: translateY(-50%) rotate(360deg);
 }
 
 .left-arrow {
     left: 0;
     margin-left: 50px;
-    
+    font-size: 250px; /* Adjust the size of the arrow */
+    line-height: 250px; /* To center the arrow vertically */
 }
 
 .right-arrow {
     right: 0;
     margin-right: 50px;
+    font-size: 250px; /* Adjust the size of the arrow */
+    line-height: 250px; /* To center the arrow vertically */
+    font-weight: 100;
 }
 
 .arrow:hover {
@@ -175,14 +233,14 @@ nav .logo {
 /* Footer */
 
 footer {
-    background: linear-gradient(130deg, rgb(95, 125, 141), rgb(85, 85, 85));
+    background: linear-gradient(130deg, rgb(193,219,155), rgb(85, 85, 85));
     font-family: "Poppins", serif;
     margin-top: 25%;
 }
 
 .footerContainer {
     width: 100%;
-    padding: 70px 30px 20px;
+    padding: 25px 20px 20px;
 }
 
 .footerIcons {
@@ -190,66 +248,66 @@ footer {
     justify-content: center;
 }
 
-    .footerIcons a {
-        text-decoration: none;
-        font-size: 16px;
-        padding: 10px;
-        background-color: white;
-        margin: 10px;
-        border-radius: 30%;
-    }
+.footerIcons a {
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50%;
+}
 
-        .footerIcons a i {
-            font-size: 1.5em;
-            color: black;
-            opacity: 0.9;
-        }
+.footerIcons a i {
+    font-size: 1.5em;
+    color: black;
+    opacity: 0.9;
+}
 
-        .footerIcons a:hover {
-            background-color: #111;
-            transition: 0.5s;
-        }
+.footerIcons a:hover {
+    background-color: #111;
+    transition: 0.5s;
+}
 
-            .footerIcons a:hover i {
-                color: white;
-                transition: 0.5s ease-in-out;
-            }
+.footerIcons a:hover i {
+    color: white;
+    transition: 0.5s ease-in-out;
+}
 
 .footerNav {
     margin: 20px 0;
 }
 
-    .footerNav ul {
-        display: flex;
-        justify-content: center;
-        list-style-type: none;
-    }
+.footerNav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
 
-        .footerNav ul li a {
-            color: white;
-            margin: 20px;
-            text-decoration: none;
-            font-size: 1em;
-            opacity: 0.7;
-            transition: 0.5s ease-in-out;
-        }
+.footerNav ul li a {
+    color: white;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1em;
+    opacity: 0.7;
+    transition: 0.5s ease-in-out;
+}
 
-            .footerNav ul li a:hover {
-                opacity: 0.8;
-                color: black;
-            }
+.footerNav ul li a:hover {
+    opacity: 0.8;
+    color: black;
+}
 
 .footerLetter {
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     padding: 20px;
     text-align: center;
 }
 
-    .footerLetter p {
-        color: white;
-        font-size: 1em;
-    }
+.footerLetter p {
+    color: white;
+    font-size: 1em;
+}
 
 .team {
     font-family: "Playfair Display SC", serif;
@@ -261,12 +319,12 @@ footer {
 }
 
 @media (max-width: 700px) {
-    .footerNav ul {
-        flex-direction: column;
-    }
+.footerNav ul {
+    flex-direction: column;
+}
 
-        .footerNav ul li {
-            width: 100%;
-            text-align: center;
-            margin: 10px;
-        }
+.footerNav ul li {
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+}

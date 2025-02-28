@@ -9,6 +9,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title> <!-- Using Razor to dynamically set title -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sigmar&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/style.css">
     <link rel="stylesheet" href="~/css/homes.css"> <!-- Your existing styles -->
     <link rel="stylesheet" href="slideshow.css"> <!-- Slideshow styles -->
 </head>
@@ -45,18 +48,33 @@
                 <a href="#">Our Team</a>
                 <div class="hover-container">
                     <h3>Meet the Team!</h3>
-                    <p>Jingle Otome Decierdo</p>
-                    <p>Carla Hacuman</p>
-                    <p>John 1</p>
-                    <p>John 2</p>
-                    <p>John 3</p>
+                    <div class="us">
+                        <img src="images/us.png" style="width: 35px;" height="35px">
+                        <p>Jingle Otome Decierdo</p>
+                    </div>
+                    <div class="us">
+                        <img src="images/us.png" style="width: 35px;" height="35px">
+                        <p>Carla Nuevo Hacuman</p>
+                    </div>
+                    <div class="us">
+                        <img src="images/us.png" style="width: 35px;" height="35px">
+                        <p>John No. 1 Bajenting</p>
+                    </div>
+                    <div class="us">
+                        <img src="images/us.png" style="width: 35px;" height="35px">
+                        <p>John No. 2 Bonbon</p>
+                    </div>
+                    <div class="us">
+                        <img src="images/us.png" style="width: 35px;" height="35px">
+                        <p>John No. 3 Gorzon</p>
+                    </div>
                 </div>
             </li>
         </ul>
         <!-- End of Top Navigation Items -->
     </nav>
 
-    <span class="arrow left-arrow" onclick="changeSlide(-1)">&#8592;</span> <!-- Left Arrow -->
+    <span class="arrow left-arrow" onclick="changeSlide(-1)">&lsaquo;</span> <!-- Left Arrow -->
 
     <div class="slideshow-container">
         <div class="slide-track">
@@ -156,9 +174,9 @@
             </div>
 
             <div class="slide">
-                <div class="card">+
+                <div class="card">
                     <img src="~/images/Polls & Survey.jpg" alt="Polls & Survey">
-                    <h3>Polls & Survey</h>
+                    <h3>Polls & Survey</h3>
                 </div>
             </div>
 
@@ -171,8 +189,8 @@
         </div>
     </div>
 
-    <span class="arrow right-arrow" onclick="changeSlide(1)">&#8594;</span> <!-- Right Arrow -->
-
+    <span class="arrow right-arrow" onclick="changeSlide(1)">&rsaquo;</span> <!-- Right Arrow -->
+    
     <!-- Footer -->
     <footer>
         <div class="footerContainer">
