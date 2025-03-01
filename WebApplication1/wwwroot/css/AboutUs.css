@@ -1,0 +1,36 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%; /* Ensure full width */
+}
+
+.aboutContainer {
+    box-shadow: rgba(0,0,0,0.4) 5px 5px 10px 5px;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 50px auto;
+    max-width: 900px;
+    color: black;
+    text-align: center;
+}
+
+.aboutContainer h1  {
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+
+.aboutContainer h3 {
+    margin-top: 25px;
+    font-family: "dancing script";
+}
+
+p {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 50px 150px;
+}

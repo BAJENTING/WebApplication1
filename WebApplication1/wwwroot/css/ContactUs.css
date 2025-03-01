@@ -1,0 +1,85 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%; /* Ensure full width */
+}
+
+.contactContainer {
+    box-shadow: rgba(0,0,0,0.4) 5px 5px 10px 5px;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 50px auto;
+    max-width: 900px;
+    color: black;
+}
+
+.contactContainer p, h3, h1{
+    text-align: center;
+    margin: 20px;
+    text-align: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center; /* Align image and text vertically */
+    margin-bottom: 20px; /* Space between each contact item */
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Divider between contact items */
+}
+
+/* Style for the icon (image) */
+.contact-item .icon {
+    margin-right: -360px; /* Space between icon and details */
+}
+
+.contact-item .icon img {
+    width: 24px;
+    height: 24px;
+    margin-left: 300px;
+    margin-top: 18px;
+}
+
+.contact-item .details {
+    flex-grow: 1; /* Allow the text to take up remaining space */
+}
+
+/* Add a specific style to the <p> elements inside the details */
+.contact-item .details p {
+    margin-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the list inside the details */
+.contact-item .details ul {
+    list-style-type: none; /* Remove default bullets */
+
+}
+
+.contact-item .details li {
+    margin-bottom: 5px; /* Space between list items */
+}
+
+.contact-item .details a {
+    text-decoration: none; /* Remove underline */
+    color: #007bff; /* Set a blue color for the links */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-item .details a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Divider between first&second and third&fourth contact-item groups */
+.contact-item:nth-child(2) {
+    border-bottom: 2px solid #333; /* Stronger divider between first and second group */
+}
+
+.contact-item:nth-child(4) {
+    border-top: 2px solid #333; /* Stronger divider between third and fourth group */
+}

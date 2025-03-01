@@ -1,3 +1,16 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background: url('/images/background2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,12 +23,13 @@ html, body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+
 nav {
-    background: linear-gradient(130deg, rgb(193,219,155), rgb(85, 85, 85));
+    background: rgba(0,0,0,0.3);
     width: 100%;
-    display: flex;
+    display: relative;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
 }
 
@@ -54,7 +68,7 @@ nav ul li:hover .hover-container {
     position: absolute;
     top: 100%; /* Position it directly below the list item */
     left: auto;
-    background: linear-gradient(130deg, rgb(193,219,155), rgb(85, 85, 85));
+    background: rgba(255, 255, 255, 0.5); 
     color: black;
     padding: 25px;
     width: 220px;
@@ -140,7 +154,7 @@ nav .logo a:hover {
 
 /* Slideshow Container */
 .slideshow-container {
-    top: 20%;
+    top: 25%;
     position: relative;
     max-width: 80%;
     margin: 50px auto;
@@ -190,6 +204,9 @@ nav .logo a:hover {
 .card:hover {
     transform: scale(1.05);
 }
+.card h3:hover {
+    opacity: 0.5;
+}
 
 /* Arrow Styles */
 .arrow {
@@ -230,17 +247,18 @@ nav .logo a:hover {
     transform: scale(1.1) translateY(-50%);
 }
 
+
 /* Footer */
 
 footer {
-    background: linear-gradient(130deg, rgb(193,219,155), rgb(85, 85, 85));
+    background: linear-gradient(130deg, rgb(183, 193, 172), rgb(191, 191, 191));
     font-family: "Poppins", serif;
-    margin-top: 25%;
+    margin-top: 30%;
 }
 
 .footerContainer {
     width: 100%;
-    padding: 25px 20px 20px;
+    padding: 20px 15px 15px;
 }
 
 .footerIcons {
@@ -284,7 +302,7 @@ footer {
 }
 
 .footerNav ul li a {
-    color: white;
+    color: black;
     margin: 20px;
     text-decoration: none;
     font-size: 1em;
@@ -293,12 +311,11 @@ footer {
 }
 
 .footerNav ul li a:hover {
-    opacity: 0.8;
-    color: black;
+    color: white;
 }
 
 .footerLetter {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     width: 100%;
     padding: 20px;
     text-align: center;
@@ -319,12 +336,13 @@ footer {
 }
 
 @media (max-width: 700px) {
-.footerNav ul {
-    flex-direction: column;
-}
+    .footerNav ul {
+        flex-direction: column;
+    }
 
-.footerNav ul li {
-    width: 100%;
-    text-align: center;
-    margin: 10px;
+    .footerNav ul li {
+         width: 100%;
+         text-align: center;
+         margin: 10px;
+    }
 }
