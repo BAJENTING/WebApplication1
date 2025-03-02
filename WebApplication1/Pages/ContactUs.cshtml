@@ -10,59 +10,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sigmar&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/ContactUs.css" />
     <title>@ViewData["Title"]</title>
 </head>
 <body>
     <div class="contactContainer">
         <h1>@ViewData["Title"]</h1>
-        <p>We'd love to hear from you!</p>
-        <p>At Balay Na Homes, we are committed to providing the best service and support to our homeowners. Whether you have a question, need assistance, or just want to connect, our team is here to help.</p>
-        <h3>Here’s how you can reach us:</h3>
+        <h3>We'd love to hear from you!</h3>
 
-        <div class="contact-item">
-            <div class="icon">
-                <img src="images/vecteezy_phone-icon.png" alt="Phone icon" width="30" height="30">
-            </div>
-            <div class="details">
+        <div class="contactIcons">
+            <div class="contactIcons-left">
                 <p>For immediate assistance, feel free to give us a call at:</p>
-                <p><strong>(555) 123-4567</strong></p>
-                <p>Our customer service hours are 8:00 am to 5:00 pm.</p>
-            </div>
-        </div>
+                <div class="contactItem">
+                    <span class="material-symbols-outlined">phone</span>
+                    <span class="d">(555) 123-4567</span>
+                </div>
 
-        <div class="contact-item">
-            <div class="icon">
-                <img src="images/vecteezy_email-icon.png" alt="Email icon" width="30" height="30">
-            </div>
-            <div class="details">
                 <p>For inquiries, feedback, or support, you can email us at:</p>
-                <p><strong>as@userexample.com</strong></p>
-                <p>We aim to respond within [X hours/days] to all email inquiries.</p>
-            </div>
-        </div>
+                <div class="contactItem">
+                    <span class="material-symbols-outlined">mail</span>
+                    <span class="d">balaynahomes2025@gmail.com</span>
+                </div>
 
-        <div class="contact-item">
-            <div class="icon">
-                <img src="images/vecteezy_location-icon.png" alt="Location icon" width="30" height="30">
-            </div>
-            <div class="details">
                 <p>Visit us in person at our office:</p>
-                <p><strong>Sanciangko St, Cebu City, 6000 Cebu</strong></p>
-                <p>Feel free to drop by during our business hours for any questions or support.</p>
+                <div class="contactItem">
+                    <span class="material-symbols-outlined">location_on</span>
+                    <span class="d">Sanciangko St, Cebu City, 6000 Cebu</span>
+                </div>
             </div>
-        </div>
 
-        <div class="contact-item">
-            <div class="icon">
-                <img src="images/vecteezy_social-icon.png" alt="Social media icon" width="30" height="30">
-            </div>
-            <div class="details">
+            <div class="divider"></div>
+
+            <div class="contactIcons-right">
                 <p>Follow us on our social media:</p>
-                <ul>
-                    <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                    <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                    <li><a href="https://x.com/" target="_blank" rel="noopener noreferrer">X</a></li>
+                <ul class="socialMedia">
+                    <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
+                    <li><a href="https://x.com/" target="_blank">X</a></li>
                 </ul>
             </div>
         </div>

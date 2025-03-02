@@ -58,8 +58,8 @@ nav ul li {
 nav ul li a {
       color: #fff;
       text-decoration: none;
-      font-family: "Sigmar", serif;
-      font-size: 15px;
+      font-family: "Poppins", serif;
+      font-size: 16px;
       letter-spacing: 1.2px;
       transition: background-color 0.5s ease, padding 0.3s ease;
 }
@@ -77,7 +77,7 @@ nav ul li:hover .hover-container {
     position: absolute;
     top: 100%; /* Position it directly below the list item */
     left: auto;
-    background: rgba(255, 255, 255, 0.5); 
+    background: rgba(255, 255, 255, 0.6);
     color: black;
     padding: 25px;
     width: 220px;
@@ -115,6 +115,8 @@ nav ul li:hover .hover-container {
     margin-top: 22px;
     margin-right: 5px; /* Space between the icon and text */
     margin-left: 8px; /* Ensure icons align to the left */
+    border-radius: 50%;
+    outline: 0.3px solid rgba(0, 0, 0, 0.5);
 }
 
 nav .logo {
@@ -274,12 +276,12 @@ button {
 footer {
     background: linear-gradient(130deg, rgb(183, 193, 172), rgb(85, 85, 85));
     font-family: "Poppins", serif;
-    margin-top: 3.6%;
+    margin-top: auto;
 }
 
 .footerContainer {
     width: 100%;
-    padding: 20px 15px 15px;
+    padding: 30px 15px 15px;
 }
 
 .footerIcons {
@@ -297,9 +299,10 @@ footer {
 }
 
 .footerIcons a i {
-    font-size: 1.5em;
-    color: black;
-    opacity: 0.9;
+     font-size: 1.5em;
+     color: black;
+     opacity: 0.9;
+     padding: 2px;
 }
 
 .footerIcons a:hover {

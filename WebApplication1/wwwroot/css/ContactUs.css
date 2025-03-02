@@ -16,70 +16,115 @@ html, body {
     margin: 50px auto;
     max-width: 900px;
     color: black;
-}
-
-.contactContainer p, h3, h1{
-    text-align: center;
-    margin: 20px;
     text-align: center;
 }
 
-.contact-item {
-    display: flex;
-    align-items: center; /* Align image and text vertically */
-    margin-bottom: 20px; /* Space between each contact item */
-    padding: 10px;
-    border-bottom: 1px solid #ddd; /* Divider between contact items */
+.contactContainer h1{
+    text-transform: uppercase;
 }
 
-/* Style for the icon (image) */
-.contact-item .icon {
-    margin-right: -360px; /* Space between icon and details */
+.contactContainer h3 {
+    margin: 25px 20px;
+    font-family: "dancing script";
 }
 
-.contact-item .icon img {
-    width: 24px;
-    height: 24px;
-    margin-left: 300px;
-    margin-top: 18px;
+/*
+    
+    Left side
+
+
+*/
+
+.contactIcons-left {
+    display: flex; /* Use flexbox for better alignment */
+    flex-direction: column;
+    float: left;
+    align-items: flex-start; /* Align items to the left */
 }
 
-.contact-item .details {
-    flex-grow: 1; /* Allow the text to take up remaining space */
-}
-
-/* Add a specific style to the <p> elements inside the details */
-.contact-item .details p {
-    margin-bottom: 10px;
+.contactIcons-left p {
+    text-align: left;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Style the list inside the details */
-.contact-item .details ul {
-    list-style-type: none; /* Remove default bullets */
-
-}
-
-.contact-item .details li {
-    margin-bottom: 5px; /* Space between list items */
-}
-
-.contact-item .details a {
-    text-decoration: none; /* Remove underline */
-    color: #007bff; /* Set a blue color for the links */
+    margin: 60px 10px;
+    font-size: 15px;
     font-weight: bold;
-    transition: color 0.3s ease;
 }
 
-.contact-item .details a:hover {
-    color: #0056b3; /* Darker blue on hover */
+.contactItem {
+    display: flex; /* Align the icon and text horizontally */
+    align-items: center; /* Vertically center the items */
+    margin: 0 5px; /* Add some margin for spacing */
 }
 
-/* Divider between first&second and third&fourth contact-item groups */
-.contact-item:nth-child(2) {
-    border-bottom: 2px solid #333; /* Stronger divider between first and second group */
+.contactIcons-left .material-symbols-outlined {
+    font-size: 30px;
+    margin-right: 10px; /* Space between the icon and text */
+    margin-left: 10px;
 }
 
-.contact-item:nth-child(4) {
-    border-top: 2px solid #333; /* Stronger divider between third and fourth group */
+.contactItem span {
+    margin-top: -40px;
+}
+
+.contactItem .d {
+    text-decoration: underline;
+}
+
+/*  Divider  */
+.divider {
+    border-left: 1px solid black;
+    height: 500px;
+    position: relative;
+    left: 50%;
+    margin-left: -3px;
+    top: 0;
+}
+
+
+/*
+    
+
+    Right side
+
+
+*/
+
+.contactIcons-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    margin-left: 480px;
+}
+
+.contactIcons-right p {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -330px;
+    margin-right: 5px;
+    margin-bottom: 50px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.socialMedia {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    justify-content: center; /* Center the list items horizontally */
+}
+
+.socialMedia li {
+    margin-right: 35px;
+}
+.socialMedia a {
+    text-decoration: none;
+    color: black;
+    border: 1px solid rgb(183, 193, 172);
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative; /* Ensure the links are clickable */
+}
+
+.socialMedia a:hover {
+     background: rgb(183, 193, 172);
 }
