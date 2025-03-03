@@ -70,6 +70,10 @@ html, body {
     text-decoration: underline;
 }
 
+.contactItem .d:hover {
+    transform: scale(1.1);
+}
+
 /*  Divider  */
 .divider {
     border-left: 1px solid black;
