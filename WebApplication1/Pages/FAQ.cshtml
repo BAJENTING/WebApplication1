@@ -8,77 +8,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balay ni Mayang</title>
-    <link rel="stylesheet" href="~/css/faq.css">
-    <script src="~/js/faq.js"></script>
+    <title>FAQ Section</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=stat_minus_1" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .faq-container {
+            max-width: 600px;
+            margin: auto;
+            text-align: left;
+			margin-top: 100px;
+        }
+
+        .faq-item {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+            .faq-item .faq-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+        .faq-answer {
+            display: none;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid white;
+        }
+
+        .material-symbols-outlined {
+            transition: transform 0.3s ease;
+        }
+
+        .rotate {
+            transform: rotate(180deg);
+        }
+
+        .load-more, .load-less {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border: none;
+            background: black;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
-<body style="margin: auto;">
-    <header style="background-color: #c4B2B0; padding: 10px; margin-left: 0px; position: relative;">
-        <div class="navbar-icon" onclick="openNav()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <img src="images/Homepage.png" height="50px" width="90px" style="margin-left: 50px;">
-    </header>
+<body>
+    <h1>Frequently Asked Questions</h1>
+    <p>These are the most commonly asked questions about Balay na Homes.</p>
+    <h3><strong>What are the rules and regulations for the community?</strong></h3>
+    <p>Our community rules promote a peaceful environment with guidelines for exterior modifications, noise control, designated parking, and pet care...</p>
 
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <h2 style="margin-left: 1.5em;">MENU</h2>
-        <hr>
-        <a href="reservation.html">Facility Reservation</a>
-        <a href="faq.html">Questions & Concerns</a>
-        <a href="bill.html">Billing & Payment</a>
+    <div class="faq-container">
+        @foreach (var faq in Model.Faqs)
+        {
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-header">
+                    <span>@faq.Question</span>
+                    <span class="material-symbols-outlined">stat_minus_1</span>
+                </div>
+                <div class="faq-answer">@faq.Answer</div>
+            </div>
+        }
+
+        <!-- Dummy FAQs -->
+        <div class="faq-item hidden" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span>What is the return policy?</span>
+                <span class="material-symbols-outlined">stat_minus_1</span>
+            </div>
+            <div class="faq-answer">You can return items within 30 days of purchase.</div>
+        </div>
+
+        <div class="faq-item hidden" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span>Do you offer free shipping?</span>
+                <span class="material-symbols-outlined">stat_minus_1</span>
+            </div>
+            <div class="faq-answer">Yes, we offer free shipping on orders over $50.</div>
+        </div>
+
+        <div class="faq-item hidden" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span>Can I change my order after placing it?</span>
+                <span class="material-symbols-outlined">stat_minus_1</span>
+            </div>
+            <div class="faq-answer">Yes, but only within 24 hours of placing the order.</div>
+        </div>
+
+        <div class="faq-item hidden" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span>Do you have physical stores?</span>
+                <span class="material-symbols-outlined">stat_minus_1</span>
+            </div>
+            <div class="faq-answer">No, we are an online-only store.</div>
+        </div>
+
+        <div class="faq-item hidden" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span>What payment methods do you accept?</span>
+                <span class="material-symbols-outlined">stat_minus_1</span>
+            </div>
+            <div class="faq-answer">We accept credit cards, PayPal, and Apple Pay.</div>
+        </div>
     </div>
 
-    <div class="head">
-        <h1>BALAY NI MAYANG</h1>
-        <h2>OPEN FORUM FOR YOUR IDEAS</h2>
-        <hr>
-    </div>
+    <button class="load-more" onclick="loadMoreFaqs()">Load More</button>
+    <button class="load-less hidden" onclick="loadLessFaqs()">Load Less</button>
 
-    <section class="faq">
-        <h2 onclick="toggleSection('faqContent')">Frequently Asked Questions</h2>
-        <div id="faqContent" class="content hidden">
-            <p>Share feedback/Complaints/Ideas</p>
-            <p>These are the most common questions we get from our homeowners. You can find and read the answers for your questions, but you can also use the forum page to post questions you have in mind but are not here.</p>
+    <script>
+        function toggleFaq(element) {
+            var answer = element.querySelector(".faq-answer");
+            var arrow = element.querySelector(".material-symbols-outlined");
+            if (answer.style.display === "none" || answer.style.display === "") {
+                answer.style.display = "block";
+                arrow.classList.add("rotate");
+            } else {
+                answer.style.display = "none";
+                arrow.classList.remove("rotate");
+            }
+        }
 
-            <h3>Frequently Asked Questions</h3>
-            <p>These are the most commonly asked questions about Balay na Homes.</p>
+        function loadMoreFaqs() {
+            var hiddenFaqs = document.querySelectorAll('.faq-item.hidden');
+            hiddenFaqs.forEach(faq => faq.classList.remove('hidden'));
+            document.querySelector('.load-more').classList.add('hidden');
+            document.querySelector('.load-less').classList.remove('hidden');
+        }
 
-            <ul>
-                <li>What are the rules and regulations for the community?</li>
-                <li>How do I report maintenance issues? ✓</li>
-                <li>How can I get involved in the HOA or community events? ✓</li>
-                <li>Who do I contact in case of an emergency? ✓</li>
-                <li>How do I access amenities like the pool, gym, or clubhouse? ✓</li>
-                <li>What happens if I violate a community rule? ✓</li>
-                <li>How does billing work? ✓</li>
-            </ul>
-
-            <button>Load More</button>
-        </div>
-    </section>
-
-    <section class="feedback">
-        <h2 onclick="toggleSection('feedbackContent')">Share feedback/Complaints/Ideas</h2>
-        <div id="feedbackContent" class="content hidden">
-            <p>This page is dedicated for everyone to freely create, share, and collaborate ideas with fellow homeowners. And you can also post feedback and complaints you want the management to hear and respond.</p>
-
-            <h3>Mind to share?</h3>
-            <ul>
-                <li>Pathway in Gate 4 needs reconstruction</li>
-                <li>We need more security guard to room around every night!</li>
-                <li>Fees for facilities are getting higher</li>
-                <li>I think our community needs a leader</li>
-            </ul>
-        </div>
-    </section>
-
-    <footer>
-        <h2>BALAY NA HOMES</h2>
-    </footer>
-
-    <script src="faq.js"></script>
+        function loadLessFaqs() {
+            var allFaqs = document.querySelectorAll('.faq-item');
+            for (let i = 5; i < allFaqs.length; i++) {
+                allFaqs[i].classList.add('hidden');
+            }
+            document.querySelector('.load-more').classList.remove('hidden');
+            document.querySelector('.load-less').classList.add('hidden');
+        }
+    </script>
 </body>
 </html>
