@@ -36,7 +36,7 @@ nav ul {
     list-style: none;
     display: flex;
     margin: auto;
-    margin-left: 25%;
+    margin-left: 15%;
 }
 
 nav ul li {
@@ -200,7 +200,7 @@ nav .logo a:hover {
 .slide {
     flex: 0 0 auto;
     width: 300px;
-    margin: 0 10px;
+    margin: 0 40px;
 }
 
 .slide img {
@@ -222,7 +222,7 @@ nav .logo a:hover {
     transition: transform 0.3s;
     margin: 20px;
     height: 300px;
-    width: 250px;
+    width: 255px;
     display: fixed;
 }
 
@@ -245,7 +245,7 @@ nav .logo a:hover {
     transition: transform 0.5s ease;
     padding: 10px;
     position: absolute;
-    top: 50%;
+    top: 53.5%;
     transform: translateY(-50%);
     z-index: 10;
     background: none;

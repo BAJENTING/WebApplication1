@@ -1,56 +1,123 @@
 ﻿@page
-@model WebApplication1.Pages.teamModel
+@model IndexModel
 @{
-    ViewData["Title"] = "Our Team";
+    ViewData["Title"] = "Home page";
 }
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sigmar&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/team.css"/>
     <title>@ViewData["Title"]</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sigmar&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/style.css">
 </head>
 <body>
-    <div class="teamContainer">
-        <h1>@ViewData["Title"]</h1>
-        <h3>Meet Balay na Homes'Amazing Team Memembers!</h3>
-        <div class="teamImage">
-            <a href="~/images/jingle.jpg">
-                <img src="~/images/jingle.jpg" alt="Jingle Otome Decierdo" />
-            </a>
-            <p><b>Jingle Otome Decierdo</b> | Student, 22, Future DrugLord</p>
+    <div class="container">
+        <nav>
+            <div class="logo"><a href="~/images/Balay-na-Homes.mp4">Balay na Homes</a></div>
+            <!-- Top Navigation Items -->
+            <ul>
+                <li>
+                    <a href="#">About Us</a>
+                    <div class="hover-container">
+                        <h3>What are we?</h3>
+                        <p>We are Balay na Homes!<br>We strive to provide a harmonious environment for everyone to enjoy. <br>Our commitment is to create a space where comfort, peace, and community come together.</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                    <div class="hover-container">
+                        <h3>Want to get in touch with us?</h3>
+                        <div class="contact-info">
+                            <img src="~/images/vecteezy_phone-icon.png" style="width: 24px;" height="24px">
+                            <p>(555) 123-4567</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Privacy Policy</a>
+                    <div class="hover-container">
+                        <h3>Privacy Policy</h3>
+                        <p>At Balay na Homes, we collect personal information to improve our services and provide support. We implement security measures to protect your data, and we do not sell or rent your information to third parties. You have the right to access, update, or delete your data, and can opt out of promotional communications at any time.</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Our Team</a>
+                    <div class="hover-container">
+                        <h3>Meet the Team!</h3>
+                        <div class="us">
+                            <img src="images/us.png" style="width: 35px;" height="35px">
+                            <p>Jingle Otome Decierdo</p>
+                        </div>
+                        <div class="us">
+                            <img src="images/us.png" style="width: 35px;" height="35px">
+                            <p>Carla Nuevo Hacuman</p>
+                        </div>
+                        <div class="us">
+                            <img src="images/us.png" style="width: 35px;" height="35px">
+                            <p>John No. 1 Bajenting</p>
+                        </div>
+                        <div class="us">
+                            <img src="images/us.png" style="width: 35px;" height="35px">
+                            <p>John No. 2 Bonbon</p>
+                        </div>
+                        <div class="us">
+                            <img src="images/us.png" style="width: 35px;" height="35px">
+                            <p>John No. 3 Gorzon</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!-- End of Top Navigation Items -->
+        </nav>
+
+        <!-- Content -->
+        <div class="content">
+            <h1>BALAY NA<br>HOMES</h1>
+            <p>Where Community Meets Comfort and Dreams</p>
         </div>
 
-        <div class="teamImage">
-            <a href="~/images/us.png">
-                <img src="~/images/us.png" alt="Carla Nuevo Hacuman" />
-            </a>
-            <p><b>Carla Nuevo Hacuman</b> | Student, 20, Fast pa sa speed ma inlove</p>
+        <!-- Login/Signup Form -->
+        <div class="form">
+            <form method="post" asp-page-handler="Login">
+                <h2>Sign up here</h2>
+                <input type="email" name="Email" placeholder="Enter Email Here" required>
+                <input type="password" name="Password" placeholder="Enter Password Here" required>
+                <button type="submit" class="btn">Login</button>
+
+                <p class="link">
+                    Don't have an account?<br>
+                    <a href="#">Sign up </a> here!
+                </p>
+            </form>
         </div>
 
-        <div class="teamImage">
-            <a href="~/images/us.png">
-                <img src="~/images/us.png" alt="John No. 1 Bajenting" />
-            </a>
-            <p><b>John No. 1 Bajenting</b> | Student, 21, 6485913 GB Ang Capacity sa Brain</p>
-        </div>
-
-        <div class="teamImage">
-            <a href="~/images/us.png">
-                <img src="~/images/us.png" alt="John No. 2 Bonbon" />
-            </a>
-            <p><b>John No. 2 Bonbon</b> | Student, 18, 3 years na, sagdie lang</p>
-        </div>
-
-        <div class="teamImage">
-            <a href="~/images/us.png">
-                <img src="~/images/us.png" alt="John No. 3 Gorzon" />
-            </a>
-            <p><b>John No. 3 Gorzon</b> | Student, 60, Oldest, like Pang Senior na level </p>
-        </div>
+        <!-- Footer -->
+        <footer>
+            <div class="footerContainer">
+                <div class="footerIcons">
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://x.com/"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://support.google.com/answer/2451065?hl=en"><i class="fa-brands fa-google-plus"></i></a>
+                    <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <div class="footerNav">
+                    <ul>
+                        <li><a href="/AboutUs">About Us</a></li>
+                        <li><a href="/ContactUs">Contact</a></li>
+                        <li><a href="/Privacy">Privacy Policy</a></li>
+                        <li><a href="/team">Our Team</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footerLetter">
+                <p>Copyright &copy;2025; <span class="team">Balay na Homes.</span></p>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
-

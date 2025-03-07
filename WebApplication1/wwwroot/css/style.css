@@ -174,7 +174,7 @@ nav .logo a:hover {
     box-shadow: 5px 5px 10px rgba(37, 37, 37, 0.5); /* Added blur and darker shadow */
     position: relative;
     top: -30%;
-    left: 75%;
+    left: 73%;
     border-radius: 25px;
     padding: 25px;
     box-sizing: border-box; /* Ensures padding doesn't add to the width/height */
@@ -279,7 +279,7 @@ button {
 footer {
     background: linear-gradient(150deg, rgba(183, 193, 172, 1), rgba(122,122,122), rgba(149, 165, 166, 1));
     font-family: "Poppins", serif;
-    margin-top: 50px;
+    margin-top: -18px;
 }
 
 .footerContainer {
