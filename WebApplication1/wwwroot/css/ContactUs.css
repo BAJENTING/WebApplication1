@@ -1,0 +1,134 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%; /* Ensure full width */
+}
+
+.contactContainer {
+    box-shadow: rgba(0,0,0,0.4) 5px 5px 10px 5px;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 50px auto;
+    max-width: 900px;
+    color: black;
+    text-align: center;
+}
+
+.contactContainer h1{
+    text-transform: uppercase;
+}
+
+.contactContainer h3 {
+    margin: 25px 20px;
+    font-family: "dancing script";
+}
+
+/*
+    
+    Left side
+
+
+*/
+
+.contactIcons-left {
+    display: flex; /* Use flexbox for better alignment */
+    flex-direction: column;
+    float: left;
+    align-items: flex-start; /* Align items to the left */
+}
+
+.contactIcons-left p {
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 60px 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.contactItem {
+    display: flex; /* Align the icon and text horizontally */
+    align-items: center; /* Vertically center the items */
+    margin: 0 5px; /* Add some margin for spacing */
+}
+
+.contactIcons-left .material-symbols-outlined {
+    font-size: 30px;
+    margin-right: 10px; /* Space between the icon and text */
+    margin-left: 10px;
+}
+
+.contactItem span {
+    margin-top: -40px;
+}
+
+.contactItem .d {
+    text-decoration: underline;
+}
+
+.contactItem .d:hover {
+    transform: scale(1.1);
+}
+
+/*  Divider  */
+.divider {
+    border-left: 1px solid black;
+    height: 500px;
+    position: relative;
+    left: 50%;
+    margin-left: -3px;
+    top: 0;
+}
+
+
+/*
+    
+
+    Right side
+
+
+*/
+
+.contactIcons-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    margin-left: 480px;
+}
+
+.contactIcons-right p {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -330px;
+    margin-right: 5px;
+    margin-bottom: 50px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.socialMedia {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    justify-content: center; /* Center the list items horizontally */
+}
+
+.socialMedia li {
+    margin-right: 35px;
+}
+.socialMedia a {
+    text-decoration: none;
+    color: black;
+    border: 1px solid rgb(183, 193, 172);
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative; /* Ensure the links are clickable */
+}
+
+.socialMedia a:hover {
+     background: rgb(183, 193, 172);
+}

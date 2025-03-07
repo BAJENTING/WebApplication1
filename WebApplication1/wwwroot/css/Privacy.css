@@ -1,0 +1,53 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 120%;
+    width: 100%; /* Ensure full width */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.privacyContainer {
+    box-shadow: rgba(0,0,0,0.4) 5px 5px 10px 5px;
+    border-radius: 5px;
+    padding: 40px;
+    color: black;
+    margin: 50px auto;
+    max-width: 900px;
+    /* Do not restrict the height of the container */
+    height: auto; /* Let the container grow based on content */
+    min-height: 80vh; /* Minimum height for the container (helps ensure some content is visible) */
+    padding-bottom: 80px; /* Ensure there's space at the bottom */
+}
+
+.privacyContainer h1 {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.privacyContainer p {
+    text-align: center;
+}
+
+.privacyDetails h3 {
+    margin-top: 35px;
+    font-family: "Poppins", serif;
+}
+
+.privacyDetails p {
+    margin-left: 20px;
+    text-align: left;
+}
+
+.privacyDetails ul li {
+    margin-left: 40px;
+    margin-top: 10px;
+}

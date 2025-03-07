@@ -1,3 +1,16 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background: url('/images/background2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,80 +18,48 @@
 }
 
 html, body {
-    width: 100%;
-    height: 100vh;
+    height: 100%;
+    width: 100%; /* Ensure full width */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* nav styles */
-
 nav {
-    background-color: deepskyblue;
+    background: rgba(0,0,0,0.3);
     width: 100%;
-    display: flex;
+    display: fixed;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
 }
 
-    nav ul {
-        list-style: none;
-        display: flex;
-        margin: auto;
-        margin-left: 25%;
-    }
-
-        nav ul li {
-            position: relative;
-            padding: 10px 30px;
-        }
-
-            nav ul li a {
-                color: #fff;
-                text-decoration: none;
-                font-family: "Sigmar", serif;
-                font-size: 15px;
-                letter-spacing: 1.2px;
-                transition: background-color 0.5s ease, padding 0.3s ease;
-            }
-
-                nav ul li a:hover {
-                    opacity: 0.7;
-                    padding: 5px;
-                }
-
-            nav ul li:hover .hover-container {
-                display: block; /* Show the hover-container when the li is hovered */
-            }
-
-.hover-container {
-    position: absolute;
-    top: 100%; /* Position it directly below the list item */
-    left: auto;
-    background: linear-gradient(130deg, rgb(95, 125, 141), rgb(85, 85, 85));
-    color: black;
-    padding: 25px;
-    width: 220px;
-    text-align: center;
-    display: none; /* Initially hidden */
-    border-radius: 10px;
-    text-align: left;
-}
-
-    .hover-container p {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 15px;
-        margin-top: 25px;
-    }
-
-.contact-info {
+nav ul {
+    list-style: none;
     display: flex;
+    margin: auto;
+    margin-left: 15%;
 }
 
-    .contact-info img {
-        margin-top: 22px;
-        margin-right: 5px; /* Space between the icon and text */
-        margin-left: 8px; /* Ensure icons align to the left */
-    }
+nav ul li {
+     position: relative;
+     padding: 10px 30px;
+     margin-left: 650px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-family: "Poppins", serif;
+    font-size: 15px;
+    letter-spacing: 1.2px;
+    margin: 0; /* Remove margin to prevent layout shifts */
+    display: inline-block; /* Make the anchor element block-like for proper scaling */
+    padding: 10px 25px; /* Optional padding for better click area */
+}
+
+nav ul li a:hover {
+     opacity: 0.5;
+     transform: none;
+}
 
 nav .logo {
     font-family: "Pacifico", serif;
@@ -86,19 +67,124 @@ nav .logo {
     display: flex;
 }
 
-    nav .logo a {
-        text-decoration: none;
-        color: white;
-        box-shadow: inset 0 0 0 0 rgb(95, 125, 141);
-        margin: 0 -.25rem;
-        padding: 0 .25rem;
-        transition: color .6s ease-in-out, box-shadow .4s ease-in-out;
-    }
+nav .logo a {
+    text-decoration: none;
+    color: white;
+    box-shadow: inset 0 0 0 0 rgb(183, 193, 172, 1);
+    margin: 5px -.25rem;
+    padding: .20rem .20rem;
+    transition: color .6s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+nav .logo a:hover {
+    box-shadow: inset 200px 0 0 0 white;
+    color: black;
+}
+
+
+
+/* User Profile */
+.profile-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-icon:hover{
+    transform: scale(1.05);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 125%;
+    background-color: white;
+    box-shadow: 0px 4px 2px rgba(0,0,0,0.4);
+    min-width: 170px;
+    z-index: 100;
+}
+
+.dp-content {
+    display: flex; /* Align the icon and text horizontally */
+    align-items: center; /* Vertically center the items */
+    margin: 0 0; /* Add some margin for spacing */
+}
+
+.dp-content span {
+    float: right;
+}
+
+.dropdown-content a, 
+.dropdown-content .logout-btn {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    text-align: left;
+    font-size: 17px;
+    font-family: "Poppins", serif;
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+.dropdown-content a:hover, 
+.dropdown-content .logout-btn:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+
+
+/* Left side content (BALAY NA HOMES) */
+.content {
+    margin-top: 14%;
+    margin-left: 5%;
+    color: #fff;
+    max-width: 620px;
+}
+
+.content h1 {
+    font-family: "Playfair Display SC", serif;
+    font-size: 90px;
+    font-weight: 500;
+    letter-spacing: 15px;
+    line-height: 80px;
+    margin-bottom: 25px;
+}
+
+.content p {
+    font-family: "Dancing Script", serif;
+    font-size: 20px;
+
+}
+
 
 
 /* Slideshow Container */
 .slideshow-container {
-    top: 20%;
+    top: 25%;
     position: relative;
     max-width: 80%;
     margin: 50px auto;
@@ -114,7 +200,17 @@ nav .logo {
 .slide {
     flex: 0 0 auto;
     width: 300px;
-    margin: 0 10px;
+    margin: 0 40px;
+}
+
+.slide img {
+    height: 170px;
+    width: 250px;
+    border-radius: 5px;
+}
+
+.slide h3 {
+    margin-top: 50px;
 }
 
 .card {
@@ -124,9 +220,10 @@ nav .logo {
     text-align: center;
     padding: 10px;
     transition: transform 0.3s;
-    margin: 20px; 
+    margin: 20px;
     height: 300px;
-    width: 250px;
+    width: 255px;
+    display: fixed;
 }
 
 .card img {
@@ -140,49 +237,54 @@ nav .logo {
     transform: scale(1.05);
 }
 
+
 /* Arrow Styles */
 .arrow {
     cursor: pointer;
-    font-size: 40px;
     user-select: none;
     transition: transform 0.5s ease;
     padding: 10px;
     position: absolute;
-    top: 50%;
+    top: 53.5%;
     transform: translateY(-50%);
     z-index: 10;
     background: none;
     color: black;
     border-radius: 50%;
-
 }
+
 
 .left-arrow {
     left: 0;
     margin-left: 50px;
-    
+    font-size: 250px; /* Adjust the size of the arrow */
+    line-height: 250px; /* To center the arrow vertically */
 }
 
 .right-arrow {
     right: 0;
     margin-right: 50px;
+    font-size: 250px; /* Adjust the size of the arrow */
+    line-height: 250px; /* To center the arrow vertically */
+    font-weight: 100;
 }
 
 .arrow:hover {
-    transform: scale(1.1) translateY(-50%);
+    transform: scale(1.05) translateY(-50%);
 }
+
 
 /* Footer */
 
 footer {
-    background: linear-gradient(130deg, rgb(95, 125, 141), rgb(85, 85, 85));
+    background: rgb(122,122,122);
     font-family: "Poppins", serif;
-    margin-top: 25%;
+    margin-top: 30%;
 }
 
 .footerContainer {
     width: 100%;
-    padding: 70px 30px 20px;
+    padding: 30px 15px 15px;
 }
 
 .footerIcons {
@@ -190,66 +292,66 @@ footer {
     justify-content: center;
 }
 
-    .footerIcons a {
-        text-decoration: none;
-        font-size: 16px;
-        padding: 10px;
-        background-color: white;
-        margin: 10px;
-        border-radius: 30%;
-    }
+.footerIcons a {
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50%;
+}
 
-        .footerIcons a i {
-            font-size: 1.5em;
-            color: black;
-            opacity: 0.9;
-        }
+.footerIcons a i {
+     font-size: 1.5em;
+     color: black;
+     opacity: 0.9;
+     padding: 2px;
+}
 
-        .footerIcons a:hover {
-            background-color: #111;
-            transition: 0.5s;
-        }
+.footerIcons a:hover {
+    background-color: #111;
+    transition: 0.5s;
+}
 
-            .footerIcons a:hover i {
-                color: white;
-                transition: 0.5s ease-in-out;
-            }
+.footerIcons a:hover i {
+    color: white;
+    transition: 0.5s ease-in-out;
+}
 
 .footerNav {
     margin: 20px 0;
 }
 
-    .footerNav ul {
-        display: flex;
-        justify-content: center;
-        list-style-type: none;
-    }
+.footerNav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
 
-        .footerNav ul li a {
-            color: white;
-            margin: 20px;
-            text-decoration: none;
-            font-size: 1em;
-            opacity: 0.7;
-            transition: 0.5s ease-in-out;
-        }
+.footerNav ul li a {
+    color: black;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1em;
+    opacity: 0.7;
+    transition: 0.5s ease-in-out;
+}
 
-            .footerNav ul li a:hover {
-                opacity: 0.8;
-                color: black;
-            }
+.footerNav ul li a:hover {
+    color: white;
+}
 
 .footerLetter {
-    background-color: #000;
+    background-color: rgba(0,0,0,0.5);
     width: 100%;
     padding: 20px;
     text-align: center;
 }
 
-    .footerLetter p {
-        color: white;
-        font-size: 1em;
-    }
+.footerLetter p {
+    color: white;
+    font-size: 1em;
+}
 
 .team {
     font-family: "Playfair Display SC", serif;
@@ -262,11 +364,12 @@ footer {
 
 @media (max-width: 700px) {
     .footerNav ul {
-        flex-direction: column;
+        flex-direction: column; /* Stack footer nav items vertically */
     }
 
-        .footerNav ul li {
-            width: 100%;
-            text-align: center;
-            margin: 10px;
-        }
+    .footerNav ul li {
+        width: 100%; /* Ensure footer list items take up full width */
+        text-align: center; /* Center the footer items */
+        margin: 10px 0; /* Add margin between footer items */
+    }
+}

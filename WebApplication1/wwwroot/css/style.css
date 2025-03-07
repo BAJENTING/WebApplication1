@@ -12,6 +12,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -55,17 +56,19 @@ nav ul li {
 }
 
 nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-family: "Sigmar", serif;
-      font-size: 15px;
-      letter-spacing: 1.2px;
-      transition: background-color 0.5s ease, padding 0.3s ease;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Poppins", serif;
+    font-size: 16px;
+    letter-spacing: 1.2px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin: 0; /* Remove margin to prevent layout shifts */
+    display: inline-block; /* Make the anchor element block-like for proper scaling */
+    padding: 10px 10px; /* Optional padding for better click area */
 }
 
 nav ul li a:hover {
-      opacity: 0.7;
-      padding: 5px;
+     transform: scale(1.1);
 }
 
 nav ul li:hover .hover-container {
@@ -76,7 +79,11 @@ nav ul li:hover .hover-container {
     position: absolute;
     top: 100%; /* Position it directly below the list item */
     left: auto;
+<<<<<<< HEAD
     background: linear-gradient(130deg, rgb(143,151,121), rgb(85, 85, 85));
+=======
+    background: rgba(255, 255, 255, 0.6);
+>>>>>>> ed67bd06c1bb47f2c06b77b93041f086e8515035
     color: black;
     padding: 25px;
     width: 220px;
@@ -86,11 +93,15 @@ nav ul li:hover .hover-container {
     text-align: left;
 }
 
-    .hover-container p {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 15px;
-        margin-top: 25px;
-    }
+.hover-container h3 {
+    text-align: center;
+}
+
+.hover-container p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-top: 25px;
+}
 
 .contact-info {
     display: flex;
@@ -102,6 +113,18 @@ nav ul li:hover .hover-container {
     margin-left: 8px; /* Ensure icons align to the left */
 }
 
+.us {
+    display: flex;
+}
+
+.us img {
+    margin-top: 22px;
+    margin-right: 5px; /* Space between the icon and text */
+    margin-left: 8px; /* Ensure icons align to the left */
+    border-radius: 50%;
+    outline: 0.3px solid rgba(0, 0, 0, 0.5);
+}
+
 nav .logo {
     font-family: "Pacifico", serif;
     font-size: 20px;
@@ -111,15 +134,20 @@ nav .logo {
 nav .logo a {
     text-decoration: none;
     color: white;
+<<<<<<< HEAD
     box-shadow: inset 0 0 0 0 rgb(143,151,121);
+=======
+    box-shadow: inset 0 0 0 0 rgba(183, 193, 172, 1);
+>>>>>>> ed67bd06c1bb47f2c06b77b93041f086e8515035
     margin: 0 -.25rem;
-    padding: 0 .25rem;
-    transition: color .6s ease-in-out, box-shadow .4s ease-in-out;
+    padding: .20rem .20rem;
+    transition: color .6s ease-in-out, box-shadow .3s ease-in-out;
 }
 
 nav .logo a:hover {
     box-shadow: inset 200px 0 0 0 white;
-    color: black;
+    color: black;   
+    height: 45px;
 }
 
 .content {
@@ -131,9 +159,9 @@ nav .logo a:hover {
 
 .content h1 {
     font-family: "Playfair Display SC", serif;
-    font-size: 70px;
+    font-size: 90px;
     font-weight: 500;
-    letter-spacing: 10px;
+    letter-spacing: 15px;
     line-height: 80px;
     margin-bottom: 25px;
 }
@@ -144,18 +172,21 @@ nav .logo a:hover {
 }
 
 
-
 /*   Login Form   */
 
 .form {
     width: 100%;
     max-width: 300px;
     height: 392.5px;
+<<<<<<< HEAD
     background: linear-gradient(130deg, rgb(143,151,121), rgb(85, 85, 85));
+=======
+    background: linear-gradient(150deg, rgba(255,255,255,0.5), rgba(60,60,60,0.9));
+>>>>>>> ed67bd06c1bb47f2c06b77b93041f086e8515035
     box-shadow: 5px 5px 10px rgba(37, 37, 37, 0.5); /* Added blur and darker shadow */
     position: relative;
     top: -30%;
-    left: 75%;
+    left: 73%;
     border-radius: 25px;
     padding: 25px;
     box-sizing: border-box; /* Ensures padding doesn't add to the width/height */
@@ -196,6 +227,19 @@ nav .logo a:hover {
     outline: none;
 }
 
+/* Remove the background color when the field is autofilled */
+
+.form input::-webkit-input-placeholder {
+    color: #fff; /* Change placeholder text color */
+    font-family: "Poppins", serif; /* Change placeholder text font */
+    font-size: 12px; /* Adjust font size of the placeholder */
+}
+
+.form input:focus:-webkit-autofill {
+    background-color: transparent !important; /* Make sure autofill is transparent */
+    box-shadow: 0 0 0 30px transparent inset !important; /* Remove shadow */
+}
+
 ::placeholder {
     color: #fff;
     font-family: "Poppins", serif;
@@ -211,7 +255,7 @@ nav .logo a:hover {
     font-size: 18px;
     border-radius: 8px;
     cursor: pointer;
-    color: #fff;
+    color: black;
 }
 
 .btn:hover {
@@ -220,8 +264,8 @@ nav .logo a:hover {
 }
 
 button {
-        color: #000;
-        font-weight: bold;
+    color: #000;
+    font-weight: bold;
     }
 
 .form .link {
@@ -233,25 +277,26 @@ button {
 
 .form .link a {
     text-decoration: none;
-    color: rgb(0, 64, 99);
+    color: rgba(191, 191, 191, 1);
 }
 
 .form .link a:hover {
      color: rgb(0, 0, 0);
+
 }
 
 
 /* Footer */
 
 footer {
-    background: linear-gradient(130deg, rgb(95, 125, 141), rgb(85, 85, 85));
+    background: linear-gradient(150deg, rgba(183, 193, 172, 1), rgba(122,122,122), rgba(149, 165, 166, 1));
     font-family: "Poppins", serif;
-    margin-top: auto;
+    margin-top: -18px;
 }
 
 .footerContainer {
     width: 100%;
-    padding: 70px 30px 20px;
+    padding: 30px 15px 15px;
 }
 
 .footerIcons {
@@ -265,14 +310,15 @@ footer {
     padding: 10px;
     background-color: white;
     margin: 10px;
-    border-radius: 30%;
+    border-radius: 50%;
 }
 
 .footerIcons a i {
-    font-size: 1.5em;
-    color: black;
-    opacity: 0.9;
-        }
+     font-size: 1.5em;
+     color: black;
+     opacity: 0.9;
+     padding: 2px;
+}
 
 .footerIcons a:hover {
     background-color: #111;
@@ -288,37 +334,36 @@ footer {
     margin: 20px 0;
 }
 
-    .footerNav ul {
-        display: flex;
-        justify-content: center;
-        list-style-type: none;
-    }
+.footerNav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
 
-        .footerNav ul li a {
-            color: white;
-            margin: 20px;
-            text-decoration: none;
-            font-size: 1em;
-            opacity: 0.7;
-            transition: 0.5s ease-in-out;
-        }
+.footerNav ul li a {
+    color: black;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1em;
+    opacity: 0.7;
+    transition: 0.5s ease-in-out;
+}
 
-            .footerNav ul li a:hover {
-                opacity: 0.8;
-                color: black;
-            }
+.footerNav ul li a:hover {
+    color: rgba(191, 191, 191, 1);
+}
 
 .footerLetter {
-    background-color: #000;
+    background-color: rgba(0,0,0,0.3);
     width: 100%;
     padding: 20px;
     text-align: center;
 }
 
-    .footerLetter p {
-        color: white;
-        font-size: 1em;
-    }
+.footerLetter p {
+    color: white;
+    font-size: 1em;
+}
 
 .team {
     font-family: "Playfair Display SC", serif;
@@ -329,19 +374,16 @@ footer {
     margin: 0px 5px;
 }
 
+/* Para Respond */
+
 @media (max-width: 700px) {
-.footerNav ul {
-    flex-direction: column;
-}
+    .footerNav ul {
+        flex-direction: column; /* Stack footer nav items vertically */
+    }
 
-.footerNav ul li {
-    width: 100%;
-    text-align: center;
-    margin: 10px;
-}
-
-.divider {
-    display: none; /* Disable divider on small screens */
-}
-
+    .footerNav ul li {
+        width: 100%; /* Ensure footer list items take up full width */
+        text-align: center; /* Center the footer items */
+        margin: 10px 0; /* Add margin between footer items */
+    }
 }
