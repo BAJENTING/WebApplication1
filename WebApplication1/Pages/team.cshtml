@@ -1,238 +1,54 @@
 @page
-@model WebApplication1.Pages.HomeModel
+ @model WebApplication1.Pages.teamModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Our Team";
 }
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"]</title> <!-- Using Razor to dynamically set title -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sigmar&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="~/css/style.css">
-    <link rel="stylesheet" href="~/css/homes.css"> <!-- Your existing styles -->
-    <link rel="stylesheet" href="slideshow.css"> <!-- Slideshow styles -->
+    <link rel="stylesheet" href="~/css/team.css" />
+    <title>@ViewData["Title"]</title>
 </head>
 <body>
-    <nav>
-        <div class="logo"><a href="~/images/Balay-na-Homes.mp4">Balay na Homes</a></div>
-        <!-- Top Navigation Items -->
-        <ul>
-            <li>
-                <a href="/AboutUs">About Us</a>
-                <a href="/ContactUs">Contact</a>
-                <a href="/Privacy">Privacy Policy</a>
-                <a href="/team">Our Team</a>
-                <a href="/FAQ">FAQ</a>
-            </li>
-        </ul>
-        <div class="profile-menu">
-            <div class="profile-icon" onclick="toggleDropdown()">
-                <img src="~/images/jingle.jpg" alt="Profile">
-            </div>
-            <div class="dropdown-content" id="profileDropdown">
-               <div class="dp-content">
-                    <a href="/EditProfile">Edit Profile
-                        <span class="material-symbols-outlined">chevron_right</span>
-                    </a>
-               </div>
-                <div class="dp-content">
-                    <a href="/Settings">
-                        Settings
-                        <span class="material-symbols-outlined">chevron_right</span>
-                    </a>
-                </div>
-                <form method="post" asp-page-handler="Logout">
-                    <div class="dp-content">
-                        <button type="submit" class="logout-btn">Logout
-                            <span class="material-symbols-outlined">chevron_right</span>
-                        </button>
-                    </div>
-                </form>
-            </div>
+    <div class="teamContainer">
+        <h1>@ViewData["Title"]</h1>
+        <h3>Meet Balay na Homes'Amazing Team Memembers!</h3>
+        <div class="teamImage">
+            <a href="~/images/us.png">
+                <img src="~/images/us.png" alt="Jingle Otome Decierdo" />
+            </a>
+            <p><b>Jingle Otome Decierdo</b> | Student, 22, Future DrugLord</p>
         </div>
-    </nav>
-        <!-- End of Top Navigation Items -->
 
+        <div class="teamImage">
+            <a href="~/images/us.png">
+                <img src="~/images/us.png" alt="Carla Nuevo Hacuman" />
+            </a>
+            <p><b>Carla Nuevo Hacuman</b> | Student, 20, Fast pa sa speed ma inlove</p>
+        </div>
 
-    <span class="arrow left-arrow" onclick="changeSlide(-1)">&lsaquo;</span> <!-- Left Arrow -->
+        <div class="teamImage">
+            <a href="~/images/us.png">
+                <img src="~/images/us.png" alt="John No. 1 Bajenting" />
+            </a>
+            <p><b>John No. 1 Bajenting</b> | Student, 21, 6485913 GB Ang Capacity sa Brain</p>
+        </div>
 
-    <div class="slideshow-container">
-        <div class="slide-track">
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Usermanangement.png" alt="User Manangement">
-                    <h3>User Management</h3>
-                </div>
-            </div>
+        <div class="teamImage">
+            <a href="~/images/us.png">
+                <img src="~/images/us.png" alt="John No. 2 Bonbon" />
+            </a>
+            <p><b>John No. 2 Bonbon</b> | Student, 21, 3 years ng Minor</p>
+        </div>
 
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Announcements and Notifications.jpg" alt="Announcements and Notifications">
-                    <h3>Announcements and Notifications</h3>
-                </div>
-            </div>
-
-            <div class="slide">
-                <div class="card">
-                    <a href="BillPay">
-                        <img src="~/images/Billing&Payment.jpg" alt="Billing & Payment">
-                    </a>
-                    <h3>Billing & Payment</h3>
-                </div>
-            </div>
-
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Facility-Reservation.jpg" alt="Facility Reservation">
-                    <h3>Facility Reservation</h3>
-                </div>
-            </div>
-
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Service Request Management.jpg" alt="Service Request Mangement">
-                    <h3>Service Request Mangement</h3>
-                </div>
-            </div>
-
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Document Management.jpg" alt="Document Mangement">
-                    <h3>Document Mangement</h3>
-                </div>
-            </div>
-
-            <div class="slide">
-                <div class="card">
-                    <a href="FAQ">
-                    <img src="~/images/Community Forum.jpg" alt="Community Forum">
-                    </a>
-                <h3>Community Forum</h3>
-                </div>
-            </div>
-
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Security Features.jpg" alt="Security Features">
-                    <h3>Security Features</h3>
-                </div>
-            </div>
-
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Event Calendar.jpg" alt="Event Calendar">
-                    <h3>Event Calendar</h3>
-                </div>
-            </div>
-
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Feedback & Complaints System.jpg" alt="Feedback & Complaints Sytem">
-                    <h3>Feedback & Complaints System</h3>
-                </div>
-            </div>
-
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Contact Directory.jpg" alt="Contact Directory">
-                    <h3>Contact Directory</h3>
-                </div>
-            </div>
-
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Mobile-Friendly.jpg" alt="Mobile Friendly">
-                    <h3>Moblie Friendly</h3>
-                </div>
-            </div>
-
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Reports & Analytics.jpg" alt="Reports & Analytics">
-                    <h3>Reports & Analytics</h3>
-                </div>
-            </div>
-
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Polls & Survey.jpg" alt="Polls & Survey">
-                    <h3>Polls & Survey</h3>
-                </div>
-            </div>
-
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Security & Privacy.jpg" alt="Sectrity & Privacy">
-                    <h3>Security & Privacy</h3>
-                </div>
-            </div>
+        <div class="teamImage">
+            <a href="~/images/us.png">
+                <img src="~/images/us.png" alt="John No. 3 Gorzon" />
+            </a>
+            <p><b>John No. 3 Gorzon</b> | Student, 60, Oldest, like Pang Senior na level </p>
         </div>
     </div>
-
-    <span class="arrow right-arrow" onclick="changeSlide(1)">&rsaquo;</span> <!-- Right Arrow -->
-    
-    <!-- Footer -->
-    <footer>
-        <div class="footerContainer">
-            <div class="footerIcons">
-                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://x.com/"><i class="fa-brands fa-twitter"></i></a>
-                <a href="https://support.google.com/answer/2451065?hl=en"><i class="fa-brands fa-google-plus"></i></a>
-                <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-            <div class="footerNav">
-                <ul>
-                    <li><a href="/AboutUs">About Us</a></li>
-                    <li><a href="/ContactUs">Contact Us</a></li>
-                    <li><a href="/Privacy">Privacy Policy</a></li>
-                    <li><a href="/team">Our Team</a></li>
-                    <li><a href="/FAQ">FAQ</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footerLetter">
-            <p>Copyright &copy;2025; <span class="team">Balay na Homes.</span></p>
-        </div>
-    </footer>
-
-    <script>
-        let currentIndex = 0;
-        const slidesToShow = 3;
-        const slideWidth = 300; // Width of each card
-        const slideTrack = document.querySelector('.slide-track');
-        const totalSlides = document.querySelectorAll('.slide').length;
-
-        function changeSlide(direction) {
-            currentIndex += direction;
-
-            // Loop back to the start or end
-            if (currentIndex < 0) {
-                currentIndex = totalSlides - slidesToShow;
-            } else if (currentIndex > totalSlides - slidesToShow) {
-                currentIndex = 0;
-            }
-
-            slideTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-        };
-
-        function toggleDropdown() {
-            document.getElementById("profileDropdown").classList.toggle("show");
-        }
-
-        window.onclick = function(event) {
-            if (!event.target.matches('.profile-icon img')) {
-                let dropdown = document.getElementById("profileDropdown");
-                if (dropdown.classList.contains('show')) {
-                    dropdown.classList.remove('show');
-                }
-            }
-        };
-
-    </script>
 </body>
-</html>
