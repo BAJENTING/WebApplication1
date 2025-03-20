@@ -1,0 +1,82 @@
+﻿@page
+@model WebApplication1.Pages.EventModel
+@{
+    ViewData["Title"] = "Event";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Calendar</title>
+    <link rel="stylesheet" href="~/css/event.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="menu-icon">&#9776;</div>
+            <div class="logo">BALAY NA HOMES</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </nav>
+            <div class="profile-icon">&#9787;</div>
+        </div>
+    </header>
+
+    <main>
+        <aside class="sidebar">
+            <ul>
+                <li onclick="updateCalendar(1)">January</li>
+                <li onclick="updateCalendar(2)">February</li>
+                <li class="active" onclick="updateCalendar(3)">March</li>
+                <li onclick="updateCalendar(4)">April</li>
+                <li onclick="updateCalendar(5)">May</li>
+                <li onclick="updateCalendar(6)">June</li>
+                <li onclick="updateCalendar(7)">July</li>
+                <li onclick="updateCalendar(8)">August</li>
+                <li onclick="updateCalendar(9)">September</li>
+                <li onclick="updateCalendar(10)">October</li>
+                <li onclick="updateCalendar(11)">November</li>
+                <li onclick="updateCalendar(12)">December</li>
+            </ul>
+        </aside>
+
+        <section class="calendar-container">
+            <h2 id="month-title">March 2025</h2>
+            <div class="calendar">
+                <div class="days">
+                    <span>S</span> <span>M</span> <span>T</span> <span>W</span> <span>T</span> <span>F</span> <span>S</span>
+                </div>
+                <div class="dates" id="dates"></div>
+            </div>
+        </section>
+
+        <section class="add-event">
+            <h3>Add Event</h3>
+            <input type="text" placeholder="Event Name">
+            <textarea placeholder="List Description"></textarea>
+            <button>Add</button>
+        </section>
+    </main>
+    <script>
+        function updateCalendar(month) {
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            document.getElementById("month-title").innerText = monthNames[month - 1] + " 2025";
+            
+            const daysInMonth = new Date(2025, month, 0).getDate();
+            let datesHtml = "";
+            for (let i = 1; i <= daysInMonth; i++) {
+                datesHtml += `<span>${i}</span>`;
+            }
+            document.getElementById("dates").innerHTML = datesHtml;
+        }
+        updateCalendar(3);
+
+    </script>
+</body>
+</html>

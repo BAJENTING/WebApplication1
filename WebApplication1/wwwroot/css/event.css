@@ -1,0 +1,126 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: #f4f4f4;
+}
+
+header {
+    background: #3e2a1a;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-icon, .profile-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+    .navbar ul li {
+        margin: 0 10px;
+    }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+main {
+    display: flex;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 20%;
+    background: #c2a78b;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+    .sidebar ul li {
+        padding: 10px;
+        text-align: center;
+        background: #d4b798;
+        margin: 5px 0;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+    }
+
+        .sidebar ul li:hover {
+            background: #a17f5e;
+            color: white;
+        }
+
+
+.calendar-container {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 20px;
+}
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.days, .dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+    .dates span {
+        padding: 10px;
+        background: #eee;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .dates .active {
+        background: #815c45;
+        color: white;
+    }
+
+.add-event {
+    width: 30%;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+    .add-event input, .add-event textarea {
+        width: 100%;
+        margin: 10px 0;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .add-event button {
+        background: #3e2a1a;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 100%;
+    }
