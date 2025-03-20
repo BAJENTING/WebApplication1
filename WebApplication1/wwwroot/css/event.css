@@ -8,11 +8,12 @@
 body {
     display: flex;
     flex-direction: column;
-    background: #f4f4f4;
+    background: url('/images/background1.jpeg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 header {
-    background: #3e2a1a;
+    background: #2D2017;
     color: white;
     padding: 15px;
     display: flex;
@@ -25,19 +26,188 @@ header {
     cursor: pointer;
 }
 
+/*new*/
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 15px;
+}
+
+.menu-icon {
+    display: block; /* Always visible */
+    cursor: pointer;
+    font-size: 28px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.navbar ul li {
+    padding: 10px 15px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar ul li a:hover {
+    opacity: 0.7;
+}
+
+.navbar .logo {
+    margin-left: 20px;
+}
+
+/* HIDDEN MENU CONTAINER */
+.menu-dropdown {
+    display: none;
+    background-color: #3e2a1a;
+    position: absolute;
+    top: 157px;
+    left: 0;
+    max-width: 100%;
+    width: 300px;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    z-index: 100;
+}
+
+.menu-dropdown ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-dropdown ul li {
+    padding: 12px 20px;
+    border-bottom: 1px solid #5a4637;
+}
+
+.menu-dropdown ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.menu-dropdown ul li:hover {
+    background-color: #5a4637;
+}
+
+/* PROFILE MENU */
+.profile-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-icon:hover{
+    transform: scale(1.05);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 125%;
+    background-color: white;
+    box-shadow: 0px 4px 2px rgba(0,0,0,0.4);
+    min-width: 170px;
+    z-index: 100;
+}
+
+.dp-content {
+    display: flex; /* Align the icon and text horizontally */
+    align-items: center; /* Vertically center the items */
+    margin: 0 0; /* Add some margin for spacing */
+}
+
+.dp-content span {
+    float: right;
+}
+
+.dropdown-content a, 
+.dropdown-content .logout-btn {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    text-align: left;
+    font-size: 17px;
+    font-family: "Poppins", serif;
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+.dropdown-content a:hover, 
+.dropdown-content .logout-btn:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    .menu-dropdown.show {
+        display: block;
+    }
+
+    nav ul.show {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .sidebar {
+        display: block;
+        width: auto;
+    }
+}
+
+
+/* old
 .navbar ul {
     list-style: none;
     display: flex;
 }
+.navbar ul li {
+    margin: 0 10px;
+}
 
-    .navbar ul li {
-        margin: 0 10px;
-    }
+.navbar ul li a {
+    color: white;
+    text-decoration: none;        
+}   
+*/
 
-        .navbar ul li a {
-            color: white;
-            text-decoration: none;
-        }
 
 main {
     display: flex;
@@ -45,27 +215,33 @@ main {
 }
 
 .sidebar {
-    width: 20%;
-    background: #c2a78b;
+    width: 15%;
+    background: none;
     padding: 10px;
     border-radius: 5px;
 }
 
-    .sidebar ul li {
-        padding: 10px;
-        text-align: center;
-        background: #d4b798;
-        margin: 5px 0;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s, color 0.3s;
-    }
+.sidebar ul {
+    list-style: none; 
+    padding: 0;      
+    margin: 0;         
+}
 
-        .sidebar ul li:hover {
-            background: #a17f5e;
-            color: white;
-        }
+.sidebar ul li {
+    padding: 10px;
+    text-align: center;
+    background: #d4b798;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    box-shadow: #8b7d73 1px 3px 2px;
+}
 
+.sidebar ul li:hover {
+     background: #a17f5e;
+     color: white;
+}
 
 .calendar-container {
     flex: 1;
@@ -73,6 +249,7 @@ main {
     padding: 20px;
     border-radius: 10px;
     margin: 0 20px;
+
 }
 
 .calendar {

@@ -25,10 +25,16 @@
         <div class="form">
             <form method="post" asp-page-handler="Login">
                 <h2>Sign up</h2>
+                <input type="name" name="FullName" placeholder="Enter Full Name" required>
                 <input type="email" name="Email" placeholder="Enter Email Here" required>
                 <input type="password" name="Password" placeholder="Enter Password Here" required>
                 <input type="password" name="ConfirmPassword" placeholder="Confirm Password" required />
                 <button type="submit" class="btn">Confirm</button>
+                <div class="link">
+                    <p>Already have an account?
+                        <a href="/Index">Signup </a>here
+                    </p>
+                </div>
             </form>
         </div>
 
