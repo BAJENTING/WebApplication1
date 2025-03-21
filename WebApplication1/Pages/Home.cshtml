@@ -20,15 +20,18 @@
     <nav>
         <div class="logo"><a href="~/images/Balay-na-Homes.mp4">Balay na Homes</a></div>
         <!-- Top Navigation Items -->
-        <ul>
-            <li>
-                <a href="/AboutUs">About Us</a>
-                <a href="/ContactUs">Contact</a>
-                <a href="/Privacy">Privacy Policy</a>
-                <a href="/team">Our Team</a>
-                <a href="/FAQ">FAQ</a>
-            </li>
+        <ul id="menuList">
+            <li><a href="/AboutUs">About Us</a></li>
+            <li><a href="/ContactUs">Contact</a></li>
+            <li><a href="/Privacy">Privacy Policy</a></li>
+            <li><a href="/team">Our Team</a></li>
+            <li><a href="/FAQ">FAQ</a></li>
         </ul>
+
+        <div class="menu-icon">
+            <i class="fa-regular fa-bars" onlick="toggleMenu"></i>
+        </div>
+
         <div class="profile-menu">
             <div class="profile-icon" onclick="toggleDropdown()">
                 <img src="~/images/jingle.jpg" alt="Profile">
@@ -40,8 +43,7 @@
                     </a>
                </div>
                 <div class="dp-content">
-                    <a href="/Settings">
-                        Settings
+                    <a href="/Settings">Settings
                         <span class="material-symbols-outlined">chevron_right</span>
                     </a>
                 </div>
@@ -201,6 +203,19 @@
     </footer>
 
     <script>
+        let menuList = document.getElementById("menuList")
+        menuList.style.maxHeight = "0px";
+
+        function toggleMenu() {
+            if (menuList.style.maxHeight == "0px")
+            {
+                menuList.style.maxHeight = "300px";
+            }
+            else {
+                menuList.style.maxHeight = "0px";
+            }
+        }
+
         let currentIndex = 0;
         const slidesToShow = 3;
         const slideWidth = 300; // Width of each card
@@ -210,22 +225,23 @@
         function changeSlide(direction) {
             currentIndex += direction;
 
-            // Loop back to the start or end
+            // Ensure smooth looping behavior
             if (currentIndex < 0) {
                 currentIndex = totalSlides - slidesToShow;
-            } else if (currentIndex > totalSlides - slidesToShow) {
+            } else if (currentIndex >= totalSlides - slidesToShow + 1) {
                 currentIndex = 0;
             }
 
             slideTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-        };
+        }
 
-        function toggleDropdown() {
+        function toggleDropdown(event) {
+            event.stopPropagation(); // Prevent immediate closure
             document.getElementById("profileDropdown").classList.toggle("show");
         }
 
-        window.onclick = function(event) {
-            if (!event.target.matches('.profile-icon img')) {
+        window.onclick = function (event) {
+            if (!event.target.closest('.profile-icon')) {
                 let dropdown = document.getElementById("profileDropdown");
                 if (dropdown.classList.contains('show')) {
                     dropdown.classList.remove('show');
@@ -234,5 +250,6 @@
         };
 
     </script>
+    <script src="https://kit.fontawesome.com/f8e1a90484.js" crossorigin="anonymous"></script>
 </body>
 </html>
