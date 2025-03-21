@@ -69,7 +69,7 @@ nav .logo {
 .form {
     width: 100%;
     max-width: 300px;
-    height: 392.5px;
+    height: auto;
     background: linear-gradient(150deg, rgba(255,255,255,0.5), rgba(60,60,60,0.9));
     box-shadow: 5px 5px 10px rgba(37, 37, 37, 0.5); /* Added blur and darker shadow */
     position: relative;
@@ -161,6 +161,7 @@ button {
     font-size: 17px;
     padding-top: 20px;
     text-align: center;
+    color: black;
 }
 
     .form .link a {

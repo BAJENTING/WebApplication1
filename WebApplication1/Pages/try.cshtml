@@ -1,0 +1,73 @@
+﻿@page
+@model WebApplication1.Pages.tryModel
+@{
+    ViewData["Title"] = "try page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balay na Homes</title>
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">Balay na Homes</div>
+            <ul>
+                <li><a href="/AboutUs">About Us</a></li>
+                <li><a href="/Contact">Contact</a></li>
+                <li><a href="/Privacy">Privacy Policy</a></li>
+                <li><a href="/Team">Our Team</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <div class="text-section">
+                <h1>BALAY NA HOMES</h1>
+                <p>Where Community Meets Comfort and Dreams</p>
+            </div>
+
+            <div class="login-section">
+                <h2>Login Here</h2>
+                <form method="post">
+                    <input type="email" name="Email" placeholder="Enter Email Here" required>
+                    <input type="password" name="Password" placeholder="Enter Password Here" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p>Don't have an account? <a href="/SignUp">Sign up here!</a></p>
+            </div>
+
+            <div class="signup-section">
+                <h2>Sign up</h2>
+                <form method="post">
+                    <input type="text" name="FullName" placeholder="Enter Your Full Name Here" required>
+                    <input type="email" name="Email" placeholder="Enter Email Here" required>
+                    <input type="password" name="Password" placeholder="Enter Password Here" required>
+                    <input type="password" name="ConfirmPassword" placeholder="Confirm Password" required>
+                    <button type="submit">Confirm</button>
+                </form>
+                <p>Already have an account? <a href="/Login">Signup here</a></p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="social-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-google"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+            <div class="footer-links">
+                <a href="/AboutUs">About Us</a>
+                <a href="/Contact">Contact</a>
+                <a href="/Privacy">Privacy Policy</a>
+                <a href="/Team">Our Team</a>
+            </div>
+            <p>Copyright &copy;2025; BALAY NA HOMES.</p>
+        </footer>
+    </div>
+</body>
+</html>
