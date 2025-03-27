@@ -5,8 +5,8 @@ namespace WebApplication1.Pages
 {
     public class FAQModel : PageModel
     {
-         public List<FaqItem> Faqs { get; set; }
-
+        public List<FaqItem>? Faqs { get; set; } = new List<FaqItem>();
+    
         public void OnGet()
         {
             Faqs = new List<FaqItem>
@@ -23,6 +23,6 @@ namespace WebApplication1.Pages
 }
 public class FaqItem
 {
-    public string Question { get; set; }
-    public string Answer { get; set; }
+    public string? Question { get; set; }
+    public string? Answer { get; set; }
 }
