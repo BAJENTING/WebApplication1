@@ -1,4 +1,4 @@
-﻿@page
+@page
 @model WebApplication1.Pages.HomeModel
 @{
     ViewData["Title"] = "Home page";
@@ -9,16 +9,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title> <!-- Using Razor to dynamically set title -->
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sigmar&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="~/css/style.css">
     <link rel="stylesheet" href="~/css/homes.css"> <!-- Your existing styles -->
     <link rel="stylesheet" href="slideshow.css"> <!-- Slideshow styles -->
 </head>
 <body>
     <nav>
-        <div class="logo"><a href="~/images/Balay-na-Homes.mp4">Balay na Homes</a></div>
+        <div class="logo">
+            <a href="#" id="openVideo">Balay na Homes</a>
+        </div>
+
+        <!-- Video Modal -->
+        <div id="videoModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <video id="homeVideo" controls>
+                    <source src="~/images/Balay-na-Homes.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
         <!-- Top Navigation Items -->
         <ul id="menuList">
             <li><a href="/AboutUs">About Us</a></li>
@@ -59,135 +77,146 @@
     </nav>
         <!-- End of Top Navigation Items -->
 
+    <div class="slidehow">
+        <span class="arrow left-arrow" onclick="changeSlide(-1)">&lsaquo;</span> <!-- Left Arrow -->
 
-    <span class="arrow left-arrow" onclick="changeSlide(-1)">&lsaquo;</span> <!-- Left Arrow -->
-
-    <div class="slideshow-container">
-        <div class="slide-track">
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Usermanangement.png" alt="User Manangement">
-                    <h3>User Management</h3>
+        <div class="slideshow-container">
+            <div class="slide-track">
+                <div class="slide">
+                    <div class="card">
+                        <img src="~/images/Usermanangement.png" alt="User Manangement">
+                        <h3>User Management</h3>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Announcements and Notifications.jpg" alt="Announcements and Notifications">
-                    <h3>Announcements and Notifications</h3>
+                <div class="slide">
+                    <div class="card">
+                        <img src="~/images/Announcements and Notifications.jpg" alt="Announcements and Notifications">
+                        <h3>Announcements and Notifications</h3>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="card">
-                    <a href="BillPay">
-                        <img src="~/images/Billing&Payment.jpg" alt="Billing & Payment">
-                    </a>
-                    <h3>Billing & Payment</h3>
+                <div class="slide">
+                    <div class="card">
+                        <a href="BillPay">
+                            <img src="~/images/Billing&Payment.jpg" alt="Billing & Payment">
+                        </a>
+                        <h3>Billing & Payment</h3>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Facility-Reservation.jpg" alt="Facility Reservation">
-                    <h3>Facility Reservation</h3>
+                <div class="slide">
+                    <div class="card">
+                        <img src="~/images/Facility-Reservation.jpg" alt="Facility Reservation">
+                        <h3>Facility Reservation</h3>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Service Request Management.jpg" alt="Service Request Mangement">
-                    <h3>Service Request Mangement</h3>
+                <div class="slide">
+                    <div class="card">
+                        <img src="~/images/Service Request Management.jpg" alt="Service Request Mangement">
+                        <h3>Service Request Mangement</h3>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Document Management.jpg" alt="Document Mangement">
-                    <h3>Document Mangement</h3>
+                <div class="slide">
+                    <div class="card">
+                        <img src="~/images/Document Management.jpg" alt="Document Mangement">
+                        <h3>Document Mangement</h3>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="card">
-                    <a href="FAQ">
-                    <img src="~/images/Community Forum.jpg" alt="Community Forum">
-                    </a>
-                <h3>Community Forum</h3>
+                <div class="slide">
+                    <div class="card">
+                        <a href="FAQ">
+                            <img src="~/images/Community Forum.jpg" alt="Community Forum">
+                        </a>
+                        <h3>Community Forum</h3>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Security Features.jpg" alt="Security Features">
-                    <h3>Security Features</h3>
+                <div class="slide">
+                    <div class="card">
+                        <img src="~/images/Security Features.jpg" alt="Security Features">
+                        <h3>Security Features</h3>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="card">
-                    <a href="Event">
-                    <img src="~/images/Event Calendar.jpg" alt="Event Calendar">
-                    </a>
-                    <h3>Event Calendar</h3>
+                <div class="slide">
+                    <div class="card">
+                        <a href="Event">
+                            <img src="~/images/Event Calendar.jpg" alt="Event Calendar">
+                        </a>
+                        <h3>Event Calendar</h3>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Feedback & Complaints System.jpg" alt="Feedback & Complaints Sytem">
-                    <h3>Feedback & Complaints System</h3>
+                <div class="slide">
+                    <div class="card">
+                        <img src="~/images/Feedback & Complaints System.jpg" alt="Feedback & Complaints Sytem">
+                        <h3>Feedback & Complaints System</h3>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Contact Directory.jpg" alt="Contact Directory">
-                    <h3>Contact Directory</h3>
+                <div class="slide">
+                    <div class="card">
+                        <img src="~/images/Contact Directory.jpg" alt="Contact Directory">
+                        <h3>Contact Directory</h3>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Mobile-Friendly.jpg" alt="Mobile Friendly">
-                    <h3>Moblie Friendly</h3>
+                <div class="slide">
+                    <div class="card">
+                        <img src="~/images/Mobile-Friendly.jpg" alt="Mobile Friendly">
+                        <h3>Moblie Friendly</h3>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Reports & Analytics.jpg" alt="Reports & Analytics">
-                    <h3>Reports & Analytics</h3>
+                <div class="slide">
+                    <div class="card">
+                        <img src="~/images/Reports & Analytics.jpg" alt="Reports & Analytics">
+                        <h3>Reports & Analytics</h3>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Polls & Survey.jpg" alt="Polls & Survey">
-                    <h3>Polls & Survey</h3>
+                <div class="slide">
+                    <div class="card">
+                        <img src="~/images/Polls & Survey.jpg" alt="Polls & Survey">
+                        <h3>Polls & Survey</h3>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <div class="card">
-                    <img src="~/images/Security & Privacy.jpg" alt="Sectrity & Privacy">
-                    <h3>Security & Privacy</h3>
+                <div class="slide">
+                    <div class="card">
+                        <img src="~/images/Security & Privacy.jpg" alt="Sectrity & Privacy">
+                        <h3>Security & Privacy</h3>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <span class="arrow right-arrow" onclick="changeSlide(1)">&rsaquo;</span> <!-- Right Arrow -->
+        <span class="arrow right-arrow" onclick="changeSlide(1)">&rsaquo;</span> <!-- Right Arrow -->
+    </div>
     
     <!-- Footer -->
     <footer>
         <div class="footerContainer">
             <div class="footerIcons">
-                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://x.com/"><i class="fa-brands fa-twitter"></i></a>
-                <a href="https://support.google.com/answer/2451065?hl=en"><i class="fa-brands fa-google-plus"></i></a>
-                <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+                <div class="fb">
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+                <div class="ig">
+                    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="x">
+                    <a href="https://x.com/ "><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+                <div class="gp">
+                    <a href="https://support.google.com/answer/2451065?hl=en"><i class="fa-brands fa-google-plus"></i></a>
+                </div>
+                <div class="yt">
+                    <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+                </div>
             </div>
             <div class="footerNav">
                 <ul>
@@ -199,28 +228,73 @@
                 </ul>
             </div>
         </div>
+
         <div class="footerLetter">
             <p>Copyright &copy;2025; <span class="team">Balay na Homes.</span></p>
         </div>
     </footer>
 
-    <script>
-        let menuList = document.getElementById("menuList")
-        menuList.style.maxHeight = "0px";
 
-        function toggleMenu() {
-            if (menuList.style.maxHeight == "0px")
-            {
-                menuList.style.maxHeight = "300px";
+    <!-- S C R I P T  S E C T I O N-->
+    <script>
+        //Modal
+        document.addEventListener("DOMContentLoaded", function () {
+        // Open Video Modal
+        document.getElementById("openVideo").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("videoModal").style.display = "flex";
+        });
+
+         // Close Video Modal
+        document.getElementById("closeModal").addEventListener("click", function() {
+            let video = document.getElementById("homeVideo");
+            video.pause();
+            document.getElementById("videoModal").style.display = "none";
+        });
+
+        // Close modal when clicking outside
+        document.addEventListener("click", function(event) {
+            let modal = document.getElementById("videoModal");
+            if (event.target === modal) {
+                let video = document.getElementById("homeVideo");
+                video.pause();
+                modal.style.display = "none";
+                }
+            });
+        });
+
+
+        // Toggle Profile Dropdown
+        function toggleDropdown() {
+            document.getElementById("profileDropdown").classList.toggle("show");
+        }
+
+        // Close dropdown when clicking outside
+        window.addEventListener("click", function (event) {
+            let dropdown = document.getElementById("profileDropdown");
+            let profileIcon = document.querySelector(".profile-icon");
+
+            if (dropdown && dropdown.classList.contains("show") && !event.target.closest(".profile-menu")) {
+                dropdown.classList.remove("show");
             }
-            else {
-                menuList.style.maxHeight = "0px";
+        });
+
+
+        // Toggle Menu - Side bar
+        let menuList = document.getElementById("menuList");
+
+        if (menuList) {
+            menuList.style.maxHeight = "0px";
+
+            function toggleMenu() {
+                menuList.style.maxHeight = (menuList.style.maxHeight === "0px") ? "300px" : "0px";
             }
         }
 
+        // Carousel (Slideshow) Logic
         let currentIndex = 0;
         const slidesToShow = 3;
-        const slideWidth = 300; // Width of each card
+        const slideWidth = 300;
         const slideTrack = document.querySelector('.slide-track');
         const totalSlides = document.querySelectorAll('.slide').length;
 
@@ -230,28 +304,13 @@
             // Ensure smooth looping behavior
             if (currentIndex < 0) {
                 currentIndex = totalSlides - slidesToShow;
-            } else if (currentIndex >= totalSlides - slidesToShow + 1) {
+            } else if (currentIndex >= totalSlides - slidesToShow) {
                 currentIndex = 0;
             }
 
             slideTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
         }
-
-        function toggleDropdown(event) {
-            event.stopPropagation(); // Prevent immediate closure
-            document.getElementById("profileDropdown").classList.toggle("show");
-        }
-
-        window.onclick = function (event) {
-            if (!event.target.closest('.profile-icon')) {
-                let dropdown = document.getElementById("profileDropdown");
-                if (dropdown.classList.contains('show')) {
-                    dropdown.classList.remove('show');
-                }
-            }
-        };
-
     </script>
-    <script src="https://kit.fontawesome.com/f8e1a90484.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/565714a90f.js" crossorigin="anonymous"></script>
 </body>
 </html>
