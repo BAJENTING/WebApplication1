@@ -8,10 +8,9 @@ html, body {
     height: 100%;
     width: 100%; 
     overflow-x: hidden; 
-    background: linear-gradient(130deg, rgba(0, 0, 0, 0.7) rgba(0, 0, 0, 0, 0.5)), url(../images/background1.jpeg) no-repeat center center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0, 0.5)), url(../images/background1.jpeg) no-repeat center center;
     background-size: cover;
 }
-
 
 nav {
     padding: 10PX 30PX;
@@ -27,7 +26,6 @@ nav ul {
     display: flex;
     gap: 30px;
     align-items: center;
-    margin-left: 120px;
 }
 
 nav ul li {
@@ -174,11 +172,14 @@ nav .logo a:hover {
 
 
 /* Slideshow Container */
-.slideshow-container {
-    top: 25%;
+
+.slideshow {
     position: relative;
-    max-width: 90%;
-    margin: 50px auto;
+}
+.slideshow-container {
+    position: relative;
+    max-width: 80%;
+    margin: 350px auto;
     overflow: hidden;
     padding: 20px 0;
 }
@@ -222,7 +223,7 @@ nav .logo a:hover {
     cursor: pointer;
     user-select: none;
     transition: transform 0.3s ease;
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
@@ -234,28 +235,21 @@ nav .logo a:hover {
 }
 
 .left-arrow {
-    left: 10px;
+    left: 60px;
 }
 
 .right-arrow {
-    right: 10px; 
+    right: 60px;
 }
 
 .arrow:hover {
-    color: rgba(255, 255, 255,0.5);
-    transform: scale(1.5) translateY(-50%);
-}
-
-/* Ensure arrows do not follow scrolling */
-.arrow {
-    position: absolute;
+    transform: scale(1.1) translateY(-50%);
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
     .slide {
         width: 250px; 
-        margin-bottom: 100px;
     }
 
     .arrow {
@@ -266,7 +260,6 @@ nav .logo a:hover {
 @media (max-width: 480px) {
     .slide {
         width: 250px;
-        margin-bottom: 100px;
     }
 
     .arrow {
@@ -280,47 +273,74 @@ nav .logo a:hover {
 footer {
     background: #2D2017;
     font-family: "Poppins", serif;
-    margin-top: 30%;
 }
 
 .footerContainer {
     width: 100%;
-    padding: 70px 50px 40px;
+    padding: 40px 20px 40px;
 }
 
 .footerIcons {
     display: flex;
     justify-content: center;
+    gap: 12px;
+    margin: 30px;
 }
 
 .footerIcons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    font-size: 16px;
-    padding: 10px;
-    background-color: white;
-    margin: 10px;
+    font-size: 20px;
+    width: 50px; /* Make them circular */
+    height: 50px;
     border-radius: 50%;
+    transition: 0.3s ease-out;
+    background-color: white; /* Keep white background on hover */
 }
 
+/* Style icons */
 .footerIcons a i {
-     font-size: 1.5em;
-     color: black;
-     opacity: 0.9;
-     padding: 2px;
+    font-size: 1.5em;
+    transition: color 0.3s ease-in-out; /* Smooth color transition */
 }
 
-.footerIcons a:hover {
-    background-color: #111;
-    transition: 0.5s;
+/* Facebook */
+.footerIcons .fb a i {
+    color: blue;
 }
 
+/* Instagram */
+.footerIcons .ig a i {
+    background: linear-gradient(to right, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block; /* Ensure it applies to text */
+}
+
+/* Twitter */
+.footerIcons .x a i {
+    color: black;
+}
+
+/* Google+ */
+.footerIcons .gp a i {
+    color: red; 
+}
+
+/* YouTube */
+.footerIcons .yt a i {
+    color: red;
+}
+
+/* Hover Effect: Reduce opacity of icons (not background) */
 .footerIcons a:hover i {
-    color: white;
-    transition: 0.5s ease-in-out;
+    opacity: 0.7;
 }
 
 .footerNav {
-    margin: 20px 0;
+    margin: 25px 0px;
 }
 
 .footerNav ul {
@@ -354,6 +374,14 @@ footer {
     font-size: 1em;
 }
 
+.team {
+    font-family: "Playfair Display SC", serif;
+    opacity: 0.7;
+    text-transform: none;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
 
 @media (max-width: 700px) {
     .footerNav ul {
