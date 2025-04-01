@@ -1,43 +1,36 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Linq;
+using WebApplication1.Data;
 
-namespace WebApplication1.Pages
+public class IndexModel : PageModel
 {
-    public class IndexModel : PageModel
+    private readonly ApplicationDbContext _context;
+
+    public IndexModel(ApplicationDbContext context)
     {
-        [BindProperty]
-        public string Email { get; set; }
+        _context = context;
+        Email = string.Empty;
+        Password = string.Empty;
+    }
 
-        [BindProperty]
-        public string Password { get; set; }
+    [BindProperty]
+    public string Email { get; set; }
 
-        public void OnGet()
+    [BindProperty]
+    public string Password { get; set; }
+
+    public IActionResult OnPostLogin()
+    {
+        var user = _context.Users.FirstOrDefault(u => u.Email == Email && u.Password == Password);
+        if (user != null)
         {
-            // Handle GET request, if needed.
+            // Handle successful login
+            return RedirectToPage("/Home");
         }
 
-        public IActionResult OnPostLogin()
-        {
-            // Handle POST request for login (when form is submitted)
-            if (ModelState.IsValid)
-            {
-                // Perform login logic (this is just an example)
-                // You would typically check the credentials here and redirect to a different page
-                if (Email == "as@userexample.com" && Password == "123")
-                {
-                    // Redirect to Home page after successful login
-                    return RedirectToPage("/Home");
-                }
-                else
-                {
-                    // Return error message or re-render the page with error
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return Page();
-                }
-            }
-
-            return Page();
-        }
+        // Handle login failure
+        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+        return Page();
     }
 }
-
