@@ -1,4 +1,4 @@
-@page
+﻿@page
 @model WebApplication1.Pages.HomeModel
 @{
     ViewData["Title"] = "Home page";
@@ -76,126 +76,271 @@
         </div>
     </nav>
         <!-- End of Top Navigation Items -->
-
-    <div class="slidehow">
-        <span class="arrow left-arrow" onclick="changeSlide(-1)">&lsaquo;</span> <!-- Left Arrow -->
-
-        <div class="slideshow-container">
-            <div class="slide-track">
-                <div class="slide">
-                    <div class="card">
-                        <img src="~/images/Usermanangement.png" alt="User Manangement">
-                        <h3>User Management</h3>
-                    </div>
+		<div class="dashboard-grid">
+        <div class="dashboard-card">
+            <div class="card-header">
+                <div class="card-title">Quick Access</div>
+                <div class="card-icon">⚡</div>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <a href="#" style="text-decoration:none; color:black">
+                    <div class="feature-icon">👤</div>
+                    <div class="feature-title">User Management</div>
+                    </a>
                 </div>
-
-                <div class="slide">
-                    <div class="card">
-                        <img src="~/images/Announcements and Notifications.jpg" alt="Announcements and Notifications">
-                        <h3>Announcements and Notifications</h3>
-                    </div>
+                <div class="feature-item">
+                    <a href="#" style="text-decoration:none; color:black">
+                    <div class="feature-icon">📢</div>
+                    <div class="feature-title">Announcements</div>
+                    </a>
                 </div>
-
-                <div class="slide">
-                    <div class="card">
-                        <a href="BillPay">
-                            <img src="~/images/Billing&Payment.jpg" alt="Billing & Payment">
-                        </a>
-                        <h3>Billing & Payment</h3>
-                    </div>
+                <div class="feature-item">
+                    <a href="/BillPay" style="text-decoration:none; color:black">
+                    <div class="feature-icon">💲</div>
+                    <div class="feature-title">Billing & Payment</div>
+                    </a>
                 </div>
-
-                <div class="slide">
-                    <div class="card">
-                        <img src="~/images/Facility-Reservation.jpg" alt="Facility Reservation">
-                        <h3>Facility Reservation</h3>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="card">
-                        <img src="~/images/Service Request Management.jpg" alt="Service Request Mangement">
-                        <h3>Service Request Mangement</h3>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="card">
-                        <img src="~/images/Document Management.jpg" alt="Document Mangement">
-                        <h3>Document Mangement</h3>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="card">
-                        <a href="FAQ">
-                            <img src="~/images/Community Forum.jpg" alt="Community Forum">
-                        </a>
-                        <h3>Community Forum</h3>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="card">
-                        <img src="~/images/Security Features.jpg" alt="Security Features">
-                        <h3>Security Features</h3>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="card">
-                        <a href="Event">
-                            <img src="~/images/Event Calendar.jpg" alt="Event Calendar">
-                        </a>
-                        <h3>Event Calendar</h3>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="card">
-                        <img src="~/images/Feedback & Complaints System.jpg" alt="Feedback & Complaints Sytem">
-                        <h3>Feedback & Complaints System</h3>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="card">
-                        <img src="~/images/Contact Directory.jpg" alt="Contact Directory">
-                        <h3>Contact Directory</h3>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="card">
-                        <img src="~/images/Mobile-Friendly.jpg" alt="Mobile Friendly">
-                        <h3>Moblie Friendly</h3>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="card">
-                        <img src="~/images/Reports & Analytics.jpg" alt="Reports & Analytics">
-                        <h3>Reports & Analytics</h3>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="card">
-                        <img src="~/images/Polls & Survey.jpg" alt="Polls & Survey">
-                        <h3>Polls & Survey</h3>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="card">
-                        <img src="~/images/Security & Privacy.jpg" alt="Sectrity & Privacy">
-                        <h3>Security & Privacy</h3>
-                    </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🏢</div>
+                    <div class="feature-title">Facility Reservation</div>
                 </div>
             </div>
         </div>
+        <div class="dashboard-card">
+            <div class="card-header">
+                <div class="card-title">Announcements & Notifications</div>
+                <div class="card-icon">📢</div>
+            </div>
+            <ul class="announcement-list">
+                <li class="announcement-item">
+                    <div class="announcement-title">Community Pool Maintenance</div>
+                    <div class="announcement-date">April 1, 2025</div>
+                    <div class="announcement-content">The community pool will be closed for maintenance on April 5-6.</div>
+                </li>
+                <li class="announcement-item">
+                    <div class="announcement-title">New Security System Installation</div>
+                    <div class="announcement-date">March 30, 2025</div>
+                    <div class="announcement-content">New security cameras will be installed at all entrances next week.</div>
+                </li>
+                <li class="announcement-item">
+                    <div class="announcement-title">HOA Fee Adjustment Notice</div>
+                    <div class="announcement-date">March 25, 2025</div>
+                    <div class="announcement-content">Annual HOA fees will be adjusted starting May 1st.</div>
+                </li>
+            </ul>
+        </div>
 
-        <span class="arrow right-arrow" onclick="changeSlide(1)">&rsaquo;</span> <!-- Right Arrow -->
+        <div class="dashboard-card">
+            <div class="card-header">
+                <div class="card-title">Billing & Payment</div>
+                <div class="card-icon">💲</div>
+            </div>
+            <div class="payment-summary">
+                <div class="payment-item">
+                    <div class="payment-label">Due</div>
+                    <div class="payment-value">$325.00</div>
+                </div>
+                <div class="payment-item">
+                    <div class="payment-label">Due Date</div>
+                    <div class="payment-value">Apr 15</div>
+                </div>
+                <div class="payment-item">
+                    <div class="payment-label">Last Payment</div>
+                    <div class="payment-value">$325.00</div>
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <button style="width: 100%; padding: 10px; background-color: var(--primary); color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 500;">Make Payment</button>
+            </div>
+            <div style="margin-top: 15px; font-size: 14px;">
+                <a href="#" style="color: var(--primary); text-decoration: none;">View Payment History</a>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-header">
+                <div class="card-title">Event Calendar</div>
+                <div class="card-icon">📅</div>
+            </div>
+            <ul class="event-list">
+                <li class="event-item">
+                    <div class="event-date">
+                        <div class="event-month">Apr</div>
+                        <div class="event-day">5</div>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-title">HOA Meeting</div>
+                        <div class="event-time">7:00 PM - 8:30 PM</div>
+                        <div class="event-location">Community Center</div>
+                    </div>
+                </li>
+                <li class="event-item">
+                    <div class="event-date">
+                        <div class="event-month">Apr</div>
+                        <div class="event-day">12</div>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-title">Community BBQ</div>
+                        <div class="event-time">12:00 PM - 3:00 PM</div>
+                        <div class="event-location">Central Park</div>
+                    </div>
+                </li>
+                <li class="event-item">
+                    <div class="event-date">
+                        <div class="event-month">Apr</div>
+                        <div class="event-day">20</div>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-title">Neighborhood Watch Meeting</div>
+                        <div class="event-time">6:30 PM - 7:30 PM</div>
+                        <div class="event-location">Community Hall</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-header">
+                <div class="card-title">Service Request Management</div>
+                <div class="card-icon">🔧</div>
+            </div>
+            <ul class="service-list">
+                <li class="service-request">
+                    <div class="service-header">
+                        <div class="service-id">Request #1082</div>
+                        <span class="status-pending">In Progress</span>
+                    </div>
+                    <div class="service-description">Leaking faucet in master bathroom</div>
+                    <div style="font-size: 12px; color: var(--gray);">Submitted: Mar 29, 2025</div>
+                </li>
+                <li class="service-request">
+                    <div class="service-header">
+                        <div class="service-id">Request #1075</div>
+                        <span class="status-completed">Completed</span>
+                    </div>
+                    <div class="service-description">Front porch light replacement</div>
+                    <div style="font-size: 12px; color: var(--gray);">Completed: Mar 25, 2025</div>
+                </li>
+            </ul>
+            <div style="margin-top: 15px;">
+                <button style="width: 100%; padding: 10px; background-color: var(--light); color: var(--dark); border: none; border-radius: 5px; cursor: pointer; font-weight: 500;">New Service Request</button>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-header">
+                <div class="card-title">Facility Reservation</div>
+                <div class="card-icon">🏢</div>
+            </div>
+            <ul class="reservation-list">
+                <li class="reservation-item">
+                    <div class="reservation-info">
+                        <div class="reservation-facility">Community Center</div>
+                        <div class="reservation-time">Apr 10, 2025 • 2:00 PM - 5:00 PM</div>
+                    </div>
+                    <span class="status-pending">Upcoming</span>
+                </li>
+                <li class="reservation-item">
+                    <div class="reservation-info">
+                        <div class="reservation-facility">Tennis Court</div>
+                        <div class="reservation-time">Apr 3, 2025 • 9:00 AM - 11:00 AM</div>
+                    </div>
+                    <span class="status-pending">Upcoming</span>
+                </li>
+            </ul>
+            <div style="margin-top: 15px;">
+                <button style="width: 100%; padding: 10px; background-color: var(--light); color: var(--dark); border: none; border-radius: 5px; cursor: pointer; font-weight: 500;">Make Reservation</button>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-header">
+                <div class="card-title">Document Management</div>
+                <div class="card-icon">📄</div>
+            </div>
+            <ul class="document-list">
+                <li class="document-item">
+                    <div class="document-icon">📝</div>
+                    <div class="document-name">HOA_Bylaws_2025.pdf</div>
+                    <div class="document-actions">
+                        <div class="document-action">📥</div>
+                        <div class="document-action">👁️</div>
+                    </div>
+                </li>
+                <li class="document-item">
+                    <div class="document-icon">📝</div>
+                    <div class="document-name">Community_Guidelines.pdf</div>
+                    <div class="document-actions">
+                        <div class="document-action">📥</div>
+                        <div class="document-action">👁️</div>
+                    </div>
+                </li>
+                <li class="document-item">
+                    <div class="document-icon">📝</div>
+                    <div class="document-name">Property_Map.jpg</div>
+                    <div class="document-actions">
+                        <div class="document-action">📥</div>
+                        <div class="document-action">👁️</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-header">
+                <div class="card-title">Community Forum</div>
+                <div class="card-icon">💬</div>
+            </div>
+            <ul class="forum-topics">
+                <li class="forum-topic">
+                    <div class="topic-title">Gardening Club Meetup</div>
+                    <div class="topic-replies">12</div>
+                </li>
+                <li class="forum-topic">
+                    <div class="topic-title">Water Conservation Tips</div>
+                    <div class="topic-replies">8</div>
+                </li>
+                <li class="forum-topic">
+                    <div class="topic-title">Looking for Babysitter Recommendations</div>
+                    <div class="topic-replies">15</div>
+                </li>
+            </ul>
+            <div style="margin-top: 15px; font-size: 14px;">
+                <a href="#" style="color: var(--primary); text-decoration: none;">View All Discussions</a>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-header">
+                <div class="card-title">Polls & Survey</div>
+                <div class="card-icon">📊</div>
+            </div>
+            <div class="poll-container">
+                <div class="poll-question">What amenity would you like to see added to our community?</div>
+                <ul class="poll-options">
+                    <li class="poll-option">
+                        <input type="radio" id="option1" name="poll">
+                        <label for="option1">Dog Park</label>
+                    </li>
+                    <li class="poll-option">
+                        <input type="radio" id="option2" name="poll">
+                        <label for="option2">Community Garden</label>
+                    </li>
+                    <li class="poll-option">
+                        <input type="radio" id="option3" name="poll">
+                        <label for="option3">Playground Expansion</label>
+                    </li>
+                    <li class="poll-option">
+                        <input type="radio" id="option4" name="poll">
+                        <label for="option4">BBQ Area</label>
+                    </li>
+                </ul>
+                <div style="margin-top: 15px;">
+                    <button style="padding: 8px 15px; background-color: var(--primary); color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 500;">Submit Vote</button>
+                </div>
+            </div>
+        </div>
     </div>
     
     <!-- Footer -->
