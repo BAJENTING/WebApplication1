@@ -10,45 +10,364 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Billing and Payment Page</title>
     <link rel="stylesheet" href="~/css/billpay.css">
+    <script src="~/js/BillPay.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <h2>Billing and Payment Portal</h2>
-            <ul>
-                <li>Swimming Pool</li>
-                <li>Gym</li>
-                <li>Ball Room</li>
-                <li>Clubhouse</li>
-                <li>Basketball Court</li>
-                <li>Tennis Court</li>
-                <li>Multi-purpose Hall</li>
-                <li>Function Room</li>
-                <li>Badminton Court</li>
-                <li>Pet Park</li>
-                <li>Playground</li>
-                <li>Lounge Areas</li>
-            </ul>
+    <nav>
+        <div class="logo">
+            <a href="#" id="openVideo">Balay na Homes</a>
         </div>
-        <div class="main-content">
-            <h2>Billing Details</h2>
-            <div class="billing-card">
-                <p><strong>Carla N. Hacuman</strong></p>
-                <p>House #: LL123</p>
-                <p>January 2025 Fees</p>
-                <ul>
-                    <li>Association Dues/Fees - <span class="paid">Paid</span></li>
-                    <li>Garbage Collection Fee - <span class="paid">Paid</span></li>
-                    <li>Sewerage/Drainage Fee - <span class="paid">Paid</span></li>
-                    <li>Security Services Fee - <span class="paid">Paid</span></li>
-                    <li>Road and Infrastructure Maintenance Fee - <span class="unpaid">Unpaid</span></li>
-                </ul>
-                <p><strong>Additional Fees:</strong></p>
-                <ul>
-                    <li>Pet Park Rent - <span class="unpaid">Unpaid</span></li>
-                </ul>
+
+        <!-- Video Modal -->
+        <div id="videoModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <video id="homeVideo" controls>
+                    <source src="~/images/Balay-na-Homes.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- Top Navigation Items -->
+        <ul id="menuList">
+            <li><a href="/AboutUs">About Us</a></li>
+            <li><a href="/ContactUs">Contact</a></li>
+            <li><a href="/Privacy">Privacy Policy</a></li>
+            <li><a href="/team">Our Team</a></li>
+            <li><a href="/FAQ">FAQ</a></li>
+        </ul>
+
+        <div class="menu-icon">
+            <i class="fa-regular fa-bars" onlick="toggleMenu"></i>
+        </div>
+
+        <div class="profile-menu">
+            <div class="profile-icon" onclick="toggleDropdown()">
+                <img src="~/images/jingle.jpg" alt="Profile">
+            </div>
+            <div class="dropdown-content" id="profileDropdown">
+                <div class="dp-content">
+                    <a href="/EditProfile">
+                        Edit Profile
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </a>
+                </div>
+                <div class="dp-content">
+                    <a href="/Settings">
+                        Settings
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </a>
+                </div>
+                <form method="post" asp-page-handler="Logout">
+                    <div class="dp-content">
+                        <button type="submit" class="logout-btn">
+                            Logout
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Bill & Payment</h1>
+
+        <div class="dashboard">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Current Billing Summary</h2>
+                    <div class="icon">$</div>
+                </div>
+
+                <div class="payment-summary">
+                    <div class="summary-item">
+                        <div class="summary-label">Total Due</div>
+                        <div class="summary-value">$325.00</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Due Date</div>
+                        <div class="summary-value">Apr 15</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Status</div>
+                        <div id="payment-status" class="status">Pending</div>
+                    </div>
+                </div>
+
+                <a href="#payment-section" class="btn">Make Payment</a>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Payment History</h2>
+                    <div class="icon">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                            <path d="M11.354 4.646a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708l6-6a.5.5 0 0 1 .708 0z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mar 15, 2025</td>
+                            <td>Monthly HOA Fee</td>
+                            <td>$325.00</td>
+                            <td><span class="status paid">Paid</span></td>
+                        </tr>
+                        <tr>
+                            <td>Feb 15, 2025</td>
+                            <td>Monthly HOA Fee</td>
+                            <td>$325.00</td>
+                            <td><span class="status paid">Paid</span></td>
+                        </tr>
+                        <tr>
+                            <td>Jan 15, 2025</td>
+                            <td>Monthly HOA Fee</td>
+                            <td>$325.00</td>
+                            <td><span class="status paid">Paid</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <a href="#" class="btn">View Full History</a>
+            </div>
+        </div>
+
+        <div class="card" id="payment-section">
+            <div class="card-header">
+                <h2>Make a Payment</h2>
+                <div class="icon">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z" />
+                        <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="payment-summary">
+                <div class="summary-item">
+                    <div class="summary-label">Regular HOA Fee</div>
+                    <div class="summary-value">$300.00</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Amenities Fee</div>
+                    <div class="summary-value">$25.00</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Total</div>
+                    <div class="summary-value">$325.00</div>
+                </div>
+            </div>
+
+            <div id="payment-success" style="display: none;">
+                <div style="background-color: #e6fff0; padding: 20px; border-radius: 5px; text-align: center; margin: 20px 0;">
+                    <h3 style="color: #28a745; margin-top: 0;">Payment Successful!</h3>
+                    <p>Your payment of $325.00 has been processed successfully.</p>
+                    <p>A receipt has been sent to your email address.</p>
+                </div>
+            </div>
+
+            <div id="payment-form-container">
+                <h3>Select Payment Method</h3>
+                <div class="payment-methods">
+                    <div class="payment-method selected">
+                        <img src="/api/placeholder/100/40" alt="Credit Card">
+                        <div>Credit Card</div>
+                    </div>
+                    <div class="payment-method">
+                        <img src="/api/placeholder/100/40" alt="Bank Transfer">
+                        <div>Bank Transfer</div>
+                    </div>
+                    <div class="payment-method">
+                        <img src="/api/placeholder/100/40" alt="Digital Wallet">
+                        <div>Digital Wallet</div>
+                    </div>
+                </div>
+
+                <form id="payment-form" class="payment-form">
+                    <div id="credit-card-fields">
+                        <div class="form-group">
+                            <label class="form-label">Card Number</label>
+                            <input type="text" class="form-control" placeholder="XXXX XXXX XXXX XXXX">
+                        </div>
+
+                        <div class="card-row">
+                            <div class="form-group">
+                                <label class="form-label">Expiration Date</label>
+                                <input type="text" class="form-control" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">CVV</label>
+                                <input type="text" class="form-control" placeholder="XXX">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Name on Card</label>
+                            <input type="text" class="form-control" placeholder="Enter name as it appears on card">
+                        </div>
+                    </div>
+
+                    <div id="bank-transfer-fields" style="display: none;">
+                        <div class="form-group">
+                            <label class="form-label">Bank Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your bank name">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Account Number</label>
+                            <input type="text" class="form-control" placeholder="Enter your account number">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Routing Number</label>
+                            <input type="text" class="form-control" placeholder="Enter routing number">
+                        </div>
+                    </div>
+
+                    <div id="digital-wallet-fields" style="display: none;">
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" placeholder="Enter your email address">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Wallet Provider</label>
+                            <select class="form-control">
+                                <option>PayPal</option>
+                                <option>Venmo</option>
+                                <option>Cash App</option>
+                                <option>Apple Pay</option>
+                                <option>Google Pay</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Billing Address</label>
+                        <input type="text" class="form-control" placeholder="Enter your billing address">
+                    </div>
+
+                    <button type="submit" class="btn">Pay Now $325.00</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="dashboard">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Billing Breakdown</h2>
+                    <div class="icon">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M7.5 1.018a7 7 0 0 0-4.79 11.566L7.5 7.793V1.018zm1 0v6.775l4.79 4.79A7 7 0 0 0 8.5 1.018zm4.084 12.273L8.5 9.207v6.775a6.97 6.97 0 0 0 4.084-2.691zM7.5 15.982V9.207l-4.084 4.084A6.97 6.97 0 0 0 7.5 15.982z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                    <img src="/api/placeholder/320/200" alt="Billing breakdown chart">
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>General Maintenance</td>
+                            <td>$125.00</td>
+                            <td>38.5%</td>
+                        </tr>
+                        <tr>
+                            <td>Landscaping</td>
+                            <td>$75.00</td>
+                            <td>23.1%</td>
+                        </tr>
+                        <tr>
+                            <td>Security</td>
+                            <td>$50.00</td>
+                            <td>15.4%</td>
+                        </tr>
+                        <tr>
+                            <td>Amenities</td>
+                            <td>$25.00</td>
+                            <td>7.7%</td>
+                        </tr>
+                        <tr>
+                            <td>Reserve Fund</td>
+                            <td>$50.00</td>
+                            <td>15.4%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Payment Options</h2>
+                    <div class="icon">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" />
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Payment Frequency</label>
+                    <select class="form-control" id="payment-frequency">
+                        <option>Monthly</option>
+                        <option>Quarterly</option>
+                        <option>Semi-Annual</option>
+                        <option>Annual</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Auto-Pay</label>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox" id="autopay">
+                        <label for="autopay">Enable automatic payments</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Payment Reminder</label>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox" id="reminder" checked>
+                        <label for="reminder">Send email reminders before due date</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Payment Receipt</label>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox" id="receipt" checked>
+                        <label for="receipt">Send email receipt after payment</label>
+                    </div>
+                </div>
+
+                <button id="save-preferences" class="btn">Save Preferences</button>
             </div>
         </div>
     </div>
+
 </body>
 </html>

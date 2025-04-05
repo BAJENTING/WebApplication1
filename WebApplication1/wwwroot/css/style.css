@@ -170,11 +170,8 @@ nav .logo a:hover {
     width: 100%;
     max-width: 300px;
     height: 392.5px;
-<<<<<<< HEAD
     background: linear-gradient(130deg, rgb(143,151,121), rgb(85, 85, 85));
-=======
     background: linear-gradient(150deg, rgba(255,255,255,0.5), rgba(60,60,60,0.9));
->>>>>>> ed67bd06c1bb47f2c06b77b93041f086e8515035
     box-shadow: 5px 5px 10px rgba(37, 37, 37, 0.5); /* Added blur and darker shadow */
     position: relative;
     top: -30%;
