@@ -1,0 +1,368 @@
+﻿@page
+@model WebApplication1.Pages.ReservationModel
+@{
+	ViewData["Title"] = "Reservation";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facility Reservation</title>
+	<link rel="stylesheet" href="~/css/reservation.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="back-button" onclick="goBack()">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                </svg>
+                Back to Dashboard
+            </button>
+            <h1>Facility Reservation</h1>
+            <div></div>
+        </div>
+
+        <div id="successMessage" class="success-message">
+            Your reservation has been successfully submitted!
+        </div>
+
+        <div id="errorMessage" class="error-message">
+            Please fill out all required fields.
+        </div>
+
+        <div class="facility-grid" id="facilityGrid">
+            <div class="facility-card" onclick="showReservationForm('Community Center')">
+                <div class="facility-image">
+                    <img src="/api/placeholder/280/150" alt="Community Center">
+                </div>
+                <div class="facility-content">
+                    <h3 class="facility-title">Community Center</h3>
+                    <div class="facility-details">Capacity: 50 people</div>
+                    <div class="facility-details">Amenities: A/V equipment, kitchen, tables, chairs</div>
+                </div>
+            </div>
+
+            <div class="facility-card" onclick="showReservationForm('Pool Area')">
+                <div class="facility-image">
+                    <img src="~/images/swimming pool/sp1.jpg" alt="Pool Area" style="background-size: contain;">
+                </div>
+                <div class="facility-content">
+                    <h3 class="facility-title">Pool Area</h3>
+                    <div class="facility-details">Capacity: 30 people</div>
+                    <div class="facility-details">Amenities: BBQ grills, tables, lounge chairs</div>
+                </div>
+            </div>
+
+            <div class="facility-card" onclick="showReservationForm('Badminton Court')">
+                <div class="facility-image">
+                    <img src="~/images/badminton court/bc1.jpg" alt="Badminton Court">
+                </div>
+                <div class="facility-content">
+                    <h3 class="facility-title">Badmintion Court</h3>
+                    <div class="facility-details">Capacity: 4 people</div>
+                    <div class="facility-details">Amenities: Lighting for night play</div>
+                </div>
+            </div>
+
+            <div class="facility-card" onclick="showReservationForm('Clubhouse')">
+                <div class="facility-image">
+                    <img src="~/images/club house/ch1.jpeg" alt="Clubhouse">
+                </div>
+                <div class="facility-content">
+                    <h3 class="facility-title">Clubhouse</h3>
+                    <div class="facility-details">Capacity: 25 people</div>
+                    <div class="facility-details">Amenities: Lounge area, TV, kitchenette</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reservation-form" id="reservationForm">
+            <h2>Reserve <span id="facilityName"></span></h2>
+
+            <div class="form-row">
+                <label for="eventName">Event Name *</label>
+                <input type="text" id="eventName" placeholder="Enter event name">
+            </div>
+
+            <div class="form-row">
+                <label for="eventDate">Date *</label>
+                <input type="date" id="eventDate">
+            </div>
+
+            <div class="form-row">
+                <label for="startTime">Start Time *</label>
+                <input type="time" id="startTime">
+            </div>
+
+            <div class="form-row">
+                <label for="endTime">End Time *</label>
+                <input type="time" id="endTime">
+            </div>
+
+            <div class="form-row">
+                <label for="attendees">Number of Attendees *</label>
+                <input type="number" id="attendees" min="1" placeholder="Enter number of attendees">
+            </div>
+
+            <div class="form-row">
+                <label for="description">Description</label>
+                <input type="text" id="description" placeholder="Brief description of your event">
+            </div>
+
+            <div class="button-row">
+                <button class="btn btn-outline" onclick="cancelReservation()">Cancel</button>
+                <button class="btn btn-primary" onclick="submitReservation()">Submit Reservation</button>
+            </div>
+        </div>
+
+        <div class="calendar-view">
+            <div class="calendar-header">
+                <div class="calendar-navigation">
+                    <button class="btn btn-outline" onclick="previousMonth()">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                        </svg>
+                    </button>
+                    <span class="calendar-title" id="currentMonth">April 2025</span>
+                    <button class="btn btn-outline" onclick="nextMonth()">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </button>
+                </div>
+                <div>
+                    <button class="btn btn-outline" onclick="showAllFacilities()">Show All Facilities</button>
+                </div>
+            </div>
+
+            <div class="calendar-grid">
+                <div class="calendar-day-header">Sun</div>
+                <div class="calendar-day-header">Mon</div>
+                <div class="calendar-day-header">Tue</div>
+                <div class="calendar-day-header">Wed</div>
+                <div class="calendar-day-header">Thu</div>
+                <div class="calendar-day-header">Fri</div>
+                <div class="calendar-day-header">Sat</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Store events data
+        let reservations = [
+
+        ];
+
+        // Current date
+        const currentDate = new Date();
+        let currentMonth = currentDate.getMonth();
+        let currentYear = currentDate.getFullYear();
+
+        // Initialize the calendar
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCalendar(currentMonth, currentYear);
+
+            // Set min date for the date picker to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('eventDate').setAttribute('min', today);
+        });
+
+               function renderCalendar(month, year) {
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const daysInMonth = lastDay.getDate();
+            const startDay = firstDay.getDay(); // 0 = Sunday
+
+            // Update month display
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            document.getElementById('currentMonth').textContent = `${monthNames[month]} ${year}`;
+
+            // Clear previous calendar days
+            const calendarDaysContainer = document.querySelector('.calendar-grid');
+            // Keep the day headers (first 7 items) and remove the rest
+            while (calendarDaysContainer.children.length > 7) {
+                calendarDaysContainer.removeChild(calendarDaysContainer.lastChild);
+            }
+
+            // Add empty cells for days before the first day of month
+            for (let i = 0; i < startDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.className = 'calendar-day inactive-day';
+                calendarDaysContainer.appendChild(emptyDay);
+            }
+
+            // Add days of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayCell = document.createElement('div');
+                dayCell.className = 'calendar-day';
+
+                // Check if this is today
+                const currentDateObj = new Date();
+                if (day === currentDateObj.getDate() && month === currentDateObj.getMonth() && year === currentDateObj.getFullYear()) {
+                    dayCell.classList.add('today');
+                }
+
+                // Add day number
+                const dayNumber = document.createElement('div');
+                dayNumber.className = 'day-number';
+                dayNumber.textContent = day;
+                dayCell.appendChild(dayNumber);
+
+                // Add events for this day
+                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dayEvents = reservations.filter(event => event.date === dateStr);
+
+                for (const event of dayEvents) {
+                    const eventIndicator = document.createElement('div');
+                    eventIndicator.className = 'event-indicator';
+                    eventIndicator.textContent = `${event.facility}: ${event.eventName}`;
+                    dayCell.appendChild(eventIndicator);
+                }
+
+                // Add click event to select date
+                dayCell.addEventListener('click', function() {
+                    const selectedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                    document.getElementById('eventDate').value = selectedDate;
+                    // If a facility has been selected, scroll to the form
+                    if (document.getElementById('facilityName').textContent) {
+                        document.getElementById('reservationForm').scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+
+                calendarDaysContainer.appendChild(dayCell);
+            }
+
+            // Add empty cells for days after the last day of month if needed
+            const totalDays = startDay + daysInMonth;
+            const remainingCells = 7 - (totalDays % 7);
+            if (remainingCells < 7) {
+                for (let i = 0; i < remainingCells; i++) {
+                    const emptyDay = document.createElement('div');
+                    emptyDay.className = 'calendar-day inactive-day';
+                    calendarDaysContainer.appendChild(emptyDay);
+                }
+            }
+        }
+
+        function previousMonth() {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            renderCalendar(currentMonth, currentYear);
+        }
+
+        function nextMonth() {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            renderCalendar(currentMonth, currentYear);
+        }
+
+        function showReservationForm(facilityName) {
+            document.getElementById('facilityName').textContent = facilityName;
+            document.getElementById('reservationForm').style.display = 'block';
+            document.getElementById('reservationForm').scrollIntoView({ behavior: 'smooth' });
+
+            // Reset form fields
+            document.getElementById('eventName').value = '';
+            document.getElementById('eventDate').value = '';
+            document.getElementById('startTime').value = '';
+            document.getElementById('endTime').value = '';
+            document.getElementById('attendees').value = '';
+            document.getElementById('description').value = '';
+
+            // Hide any previous messages
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'none';
+        }
+
+        function cancelReservation() {
+            document.getElementById('reservationForm').style.display = 'none';
+            document.getElementById('facilityGrid').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitReservation() {
+            // Get form values
+            const facilityName = document.getElementById('facilityName').textContent;
+            const eventName = document.getElementById('eventName').value;
+            const eventDate = document.getElementById('eventDate').value;
+            const startTime = document.getElementById('startTime').value;
+            const endTime = document.getElementById('endTime').value;
+            const attendees = document.getElementById('attendees').value;
+
+            // Validate form
+            if (!eventName || !eventDate || !startTime || !endTime || !attendees) {
+                document.getElementById('errorMessage').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('errorMessage').style.display = 'none';
+                }, 3000);
+                return;
+            }
+
+            // Check for conflicts
+            const conflicts = reservations.filter(r =>
+                r.facility === facilityName &&
+                r.date === eventDate &&
+                ((r.startTime <= startTime && r.endTime > startTime) ||
+                 (r.startTime < endTime && r.endTime >= endTime) ||
+                 (startTime <= r.startTime && endTime > r.startTime))
+            );
+
+            if (conflicts.length > 0) {
+                document.getElementById('errorMessage').textContent = 'Time slot already reserved. Please choose another time.';
+                document.getElementById('errorMessage').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('errorMessage').style.display = 'none';
+                    document.getElementById('errorMessage').textContent = 'Please fill out all required fields.';
+                }, 3000);
+                return;
+            }
+
+            // Add new reservation
+            const newReservation = {
+                facility: facilityName,
+                eventName: eventName,
+                date: eventDate,
+                startTime: startTime,
+                endTime: endTime,
+                attendees: attendees,
+                description: document.getElementById('description').value
+            };
+
+            reservations.push(newReservation);
+
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+
+            // Hide form and reset values
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+                document.getElementById('reservationForm').style.display = 'none';
+
+                // Refresh calendar to show new reservation
+                renderCalendar(currentMonth, currentYear);
+
+                // Scroll back to facilities grid
+                document.getElementById('facilityGrid').scrollIntoView({ behavior: 'smooth' });
+            }, 2000);
+        }
+
+        function showAllFacilities() {
+            document.getElementById('reservationForm').style.display = 'none';
+            document.getElementById('facilityGrid').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function goBack() {
+            // In a real application, this would take you back to the dashboard
+            // For this demo, we'll just show a message
+            alert('In a real application, this would navigate back to the dashboard page.');
+        }
+    </script>
+</body>
+</html>
