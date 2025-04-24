@@ -494,37 +494,61 @@ header {
     display: inline-block;
 }
 
+/* Keep your existing styles */
 .reservation-list {
-    list-style: none;
-    margin-top: 15px;
+    margin-bottom: 15px;
+    max-height: 240px;
+    overflow-y: auto;
 }
 
 .reservation-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid var(--light);
+    border-bottom: 1px solid var(--border-color);
 }
 
     .reservation-item:last-child {
         border-bottom: none;
     }
 
-.reservation-info {
-    flex: 1;
-}
-
-.reservation-facility {
+.facility-name {
     font-weight: 500;
     margin-bottom: 5px;
 }
 
-.reservation-time {
-    font-size: 12px;
-    color: var(--gray);
+.reservation-details {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
 }
 
+.reservation-status {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Add these new styles for status badges */
+.status-badge {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+    .status-badge.upcoming {
+        background-color: #e8f5e9;
+        color: #2e7d32;
+    }
+
+    .status-badge.completed {
+        background-color: #eeeeee;
+        color: #616161;
+    }
+
+.no-reservations {
+    padding: 15px 0;
+    text-align: center;
+    color: #757575;
+    font-size: 14px;
+}
 .forum-topics {
     list-style: none;
     margin-top: 15px;
